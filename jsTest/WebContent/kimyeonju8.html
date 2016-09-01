@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<meta name="viewport" content="initial-scale=1, width=device-width"/> 
+
+<style>
+	
+	#FtoC{
+	text-align:center;
+	}
+</style>
+<script>
+	function fn(){
+		c.value=(f.value-32)/1.8;		
+	}
+</script>
+
+</head>
+
+<body>
+	<div id="FtoC">
+	화씨 <input type="text" id="f"> F
+	<p><button onclick="fn()">계산</button></p>
+	섭씨 <input type="text" id="c"> C
+	</div>
+</body>
+</html>

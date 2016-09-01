@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+	<script>
+		function fn(){		
+		
+			a=num.value;
+			a=Number(a);
+				
+				switch(a%2){
+				
+					case 0:
+						console.log('짝수');
+						result.innerText="짝수";
+						break;
+						
+					case 1:
+						console.log('홀수');
+						result.innerText="홀수";
+						break;
+						
+					default:
+						console.log('기타');
+						break;
+					
+				}		
+		}
+	</script>
+</head>
+
+<body>
+
+	숫자: <input id="num" type="number"><br><br>
+	<button onclick="fn()">확인</button><br><br>
+	<div id="result">결과</div>
+
+</body>
+</html>

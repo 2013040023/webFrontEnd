@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script>
+		window.onload = function(){
+			dis = document.querySelector("[type='text']");
+ 			num = document.querySelectorAll("button");
+			
+ 			for(i in num){
+ 				num[i].onclick = function(){
+ 					if(this.value=="`"){
+ 						dis.value = "";	
+ 					}else if(this.value=="="){
+  						dis.value = eval(dis.value);
+ 					}else{
+ 						dis.value += this.value;
+ 					}
+ 				}	
+ 			}		
+		}
+
+	</script>
+</head>
+<body>
+	display<input type="text"><br>
+   <button id="c7" value="7">7</button>
+   <button id="c8" value="8">8</button>
+   <button id="c9" value="9">9</button>
+   <button id="dev" value="/">/</button><br>
+   <button id="c4" value="4">4</button>
+   <button id="c5" value="5">5</button>
+   <button id="c6" value="6">6</button>
+   <button id="mul" value="*">*</button><br>
+   <button id="c1" value="1">1</button>
+   <button id="c2" value="2">2</button>
+   <button id="c3" value="3">3</button>
+   <button id="min" value="-">-</button><br>
+   <button id="c0" value="0">0</button>
+   <button id="plu" value="+">+</button><br>
+   <button id="cle" value="`">Clear</button>
+   <button id="ent" value="=">Enter</button><br> 
+</body>
+</html>

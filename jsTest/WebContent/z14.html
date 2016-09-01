@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	li:NTH-CHILD(2N) {
+		color:red;
+}
+
+</style>
+<script>
+	function fn(){
+			my=document.querySelectorAll('li:NTH-CHILD(2n)');
+			
+			for(n=0;n<my.length;n++){				
+				my[n].innerText="hello";
+				my[n].style.backgroundColor="yellow";
+			} 
+
+		
+	}
+</script>
+</head>
+
+<body>
+	<ul>
+		<li>축구</li>
+		<li>농구</li>
+		<li>탁구</li>
+		<li>테니스</li>
+		<li>양궁</li>
+		<li>레슬링</li>
+		<li>유도</li>
+	</ul>
+
+	<button onclick="fn()">추웟!</button>
+	
+</body>
+
+</html>

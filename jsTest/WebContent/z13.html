@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function fn(){
+			/* 
+			my4=document.querySelector('[name="grade"]:checked');
+			myname.value=my4.value;
+			 */			 
+/* 			my1=document.querySelector("[type='text']");	
+			console.log(my1.value);
+			
+			my2=document.querySelector("[type='number']");
+			console.log(my2.value);
+			
+		    my3=document.querySelector("[name='grade']:checked");
+		    console.log(my3.value);
+		    
+			my4=document.querySelectorAll("[type='checkbox']:checked");
+			my="";
+			for(var n=0;n<my4.length;n++){
+				 my += my4[n].value+" ";		 
+			 } 
+			
+			my5=document.querySelectorAll("select>option:checked");
+			 
+		 	view.value="";		 
+			view.value="이름: " +my1.value+ "\n"
+							+"나이: "+my2.value+"\n";
+							+"학년: " + my3.value+"\n";			
+							+"취미: " + my.value+"\n";
+							+"회사: " + my5.value+"\n";
+
+			 */
+/* 			my=document.querySelectorAll('[id="my_info"]');
+			 for(n=0;n<my.length;n++){
+				 content.value=my[n].value;
+			 } */
+		
+		my1 = document.querySelector("[type='text']");
+		console.log(my1.value);
+		my2 = document.querySelector("[type='number']");
+		console.log(my2.value);
+		my3 = document.querySelector("[name='grade']:checked");
+		console.log(my3.value);
+		
+		
+		my4=document.querySelectorAll("[type='checkbox']:checked");
+		my="";
+		for(var i=0;i<my4.length;i++){
+			my += my4[i].value+" ";	
+		 } 
+		console.log(my);
+
+		
+		my5 = document.querySelector("select > option:checked");
+		console.log(my5.value);
+		
+		view.value = "";
+		view.value = "이름 : "+my1.value + "\n" +"나이 : "+my2.value + "\n"
+							+"학년 : "+my3.value + "\n"+"취미 : "+my + "\n"
+							+"회사 : "+my5.value + "\n";
+}
+</script>
+
+</head>
+
+<body>
+	이름: <input id="myname" type="text"><br>
+	나이: <input id="myage" type="number"><br><br>
+	
+	<input type="radio" name="grade" value="1학년">1학년<br>
+	<input type="radio" name="grade" value="2학년">2학년<br>
+	<input type="radio" name="grade" value="3학년">3학년<br><br>
+	
+	<input type="checkbox" name="hobby" value="낚시">낚시<br>
+	<input type="checkbox" name="hobby" value="독서">독서<br>
+	<input type="checkbox" name="hobby" value="영화보기">영화보기<br><br>
+	
+	<select>
+		<option value="삼성">삼성</option>
+		<option value="현대">현대</option>
+		<option value="LG">LG</option>
+		<option value="SK">SK</option>		
+	</select><br><br>
+	<textarea id="view" rows="5" cols="40"></textarea><br><br>
+	
+	<button onclick="fn()">추웟!</button>
+</body>
+
+</html>

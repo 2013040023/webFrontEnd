@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script>
+	function fn(){
+		alert("call");
+	}
+	
+	function init(){
+		//fn 이름이 있음!
+		//mybtn.onclick=fn 추천1
+		
+		//익명
+		/* mybtn.onclick=function(){
+			alert("hi");
+		} 추천2 */
+		
+	/* 	mybtn.addEventListener("click",fn);	//on빼고! 추천3
+	 */
+	 }
+	
+	window.onload=function(){
+		alert("init");
+		mybtn.addEventListener("click",fn);
+	}
+</script>
+</head>
+
+<body>
+	<button id="mybtn"> 추웡 </button>
+</body>
+</html>

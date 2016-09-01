@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<meta name="viewport" content="initial-scale=1, width=device-width"/> 
+
+<title>Insert title here</title>
+
+<style>
+	#result{
+		text-align:center;
+	}
+	
+	img{
+		border:1pt solid;
+		width:100px;
+		height:80px;
+	}
+
+</style>
+
+<script>
+	function fn(){		
+		a=Number(jumsu.value);
+		
+		if(a > 75){
+			myimg.src="image/img1.jpg";
+		}
+		else{
+			 myimg.src="image/img2.jpg";
+		}
+		console.log(jumsu.value);
+	}
+</script>
+
+</head>
+<body>
+
+<div id="result">
+	점수 <input id="jumsu" type="text"> <br><br>
+	<button onclick="fn()">결과</button><br><br>
+	<img id="myimg" src=""><br>	
+		
+</div>
+
+</body>
+</html>

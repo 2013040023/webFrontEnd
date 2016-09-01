@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script>
+
+//  window.onload=function(){
+	 
+// 	 myin=document.querySelector('[type="text"]');
+// 	 myin.onfocus=function(){
+// 		// alert("call");
+// 		 myin.style.backgroundColor="yellow";
+// 	 }
+	 
+	 
+	 function my(){
+			/* 	myin=document.querySelector('[type="text"]');
+			myin.onfocus=function fn()
+			{
+			  myin.style.backgroundColor="yellow";
+			 
+			this.style.backgroundColor="yellow";	 
+			 } */
+			 
+			 mytxt1.onfocus=function()
+			 {
+				mytxt1.style.backgroundColor="blue";
+			}
+			 mytxt1.onblur=function()
+			 {
+				 mytxt1.style.backgroundColor="yellow";
+			 }	 
+			}
+		 
+ 
+</script>
+</head>
+<body onload="my()">
+	<input id="mytxt1" type="text"><br><br>
+	<input id="mytxt2" type="text"><br><br>
+	<button id="mybtn">확인</button>
+</body>
+</html>

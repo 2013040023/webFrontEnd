@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<style>
+	#student{
+		text-align:center;
+	}
+	
+	table,th,td{
+		border:2px solid black;
+	}
+	
+	#mytable{
+		width:40%;
+		text-align: center;
+		margin-top:50px;
+		margin-left:150px;
+		padding:3px;
+		}
+</style>
+
+<script>
+	arr=[];
+	
+
+	//javascript 기반,class 정의
+	function Student(name,age,birth){
+		this.name=name;
+		this.age=age;
+		this.birth=birth;		
+		
+	}
+	
+	Student.prototype.getName=function(){
+		return this.name;
+	}
+	
+	Student.prototype.getAge=function(){
+		return this.age;
+	}
+	
+	Student.prototype.getBirth=function(){
+		return this.birth;
+	}
+	
+	
+	function add(){								
+		arr.push(new Student(std_name.value,std_age.value,std_birth.value));		
+	 }
+	
+			
+
+ 	function showAll(){
+ 		
+		len=mytable.rows.length;
+		for(i=1;i<len;i++)
+			mytable.deleteRow(1);
+ 		
+		for(n in arr){
+			myrow=mytable.insertRow();
+			cell1 =myrow.insertCell();
+			cell2 =myrow.insertCell();
+			cell3 =myrow.insertCell();
+			
+			console.log("이름:",arr[n].name,"나이:",arr[n].age,"생일:",arr[n].birth);			
+		
+			cell1.innerText =arr[n].name;
+			cell2.innerText =arr[n].age;
+			cell3.innerText =arr[n].birth;
+		}
+		
+		
+	} 
+
+</script>
+
+</head>
+
+<body>
+	<div id="student">
+	<h1>주소록 관리</h1>
+	이름:<input id="std_name" type="text"><br>
+	나이:<input id="std_age" type="number"><br>
+	생일:<input id="std_birth" type="date"><br><br>
+	
+	<button onclick="add()">입력</button> 
+	<button onclick="showAll()">보기</button>
+	
+		<table id="mytable">
+		<tr><th>이름</th><th>나이</th><th>생일</th></tr>
+		</table>
+
+
+	
+	</div>
+</body>
+
+</html>

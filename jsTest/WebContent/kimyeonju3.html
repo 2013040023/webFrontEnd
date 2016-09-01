@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script>
+	
+	jumsu=prompt("점수 입력(0<점수<100)");
+	jumsu=(jumsu<0 || jumsu>100) ? prompt( "점수 입력(0<점수<100)" ): jumsu;
+
+	jumsu=Number(jumsu);
+	
+	result= (jumsu >= 70 && jumsu <= 100) ? '합격' : '불합격';
+	console.log(result);
+</script>
+</head>
+<body>
+
+</body>
+</html>

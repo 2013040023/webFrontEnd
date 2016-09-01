@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script>
+	function fn(){
+		
+		a=Number(num1.value);
+		b=Number(num2.value);
+
+		hab=a + b ;
+		console.log(typeof(hab));	
+		
+		hab=Number(hab);
+		console.log(hab);
+		
+		result.innerText = hab;
+		Number(result.innerText);
+	}
+	
+</script>
+</head>
+<body>
+	숫자1:<input id="num1" type="text"></input><br>
+	숫자2:<input id="num2" type="text"></input><br>
+	결과: <div id="result">ㅇㅅㅇ</div><br>
+	<button onclick="fn()">더하기</button>
+</body>
+</html>

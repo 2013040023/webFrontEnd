@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style>
+	p{
+	background-color:pink;
+	}
+	
+	.myclass{
+		border:1px solid black;
+		font-size:20pt;
+	}
+</style>
+
+<script>
+	function fn(){
+		/* mydiv.innerHTML="<h1>화이팅</h1>"; */
+		/* mydiv.style.backgroundColor="green";
+		mydiv.style.color="white";
+	 */
+		mydiv.className="myclass"; 
+	}
+</script>
+
+</head>
+
+<body>
+	<div id='mydiv'>KOREA</div>
+	<button onclick="fn()">확인</button>
+
+</body>
+</html>

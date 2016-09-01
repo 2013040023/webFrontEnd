@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script>
+
+	function GetArea(r){
+		return r*r*3.14;
+	}
+	
+	function fn(){
+		c= GetArea(Number(radius.value));
+		result.innerText="";
+		result.innerText=c;	
+	}
+</script>
+</head>
+
+<body>
+
+	반지름:<input type="number" id="radius"><br>
+	<button onclick="fn()">원의 면적 구하기</button><br><br>
+	원의 면적: <div id="result"></div>
+</body>
+
+</html>

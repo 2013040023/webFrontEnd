@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script>
+	jumsu=prompt("점수를 입력하세요: ");
+	jumsu=Number(jumsu);
+
+	if(jumsu<0||jumsu>100){
+		
+		alert("0에서 100까지의 점수를 입력하세요.")
+		jumsu=prompt("점수를 입력하세요: ");
+		jumsu=Number(jumsu);
+	}
+	
+	if(jumsu>=90 && jumsu<=100){console.log("A");}
+	else if(jumsu>=80 && jumsu<=89){console.log("B");}
+	else if(jumsu>=70 && jumsu<=79){console.log("C");}
+	else if(jumsu>=60 && jumsu<=69){console.log("D");}
+	else{console.log("F");}
+
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+
+<script>
+	function fn(){
+/* 		
+		my=document.getElementById('mydiv');
+		my.innerText="화이팅";  */
+ 		my=document.querySelectorAll('p');
+/*  		my[0].innerText="화이팅"; 
+ */		
+		
+ 		for(n in my)
+			{
+				my[n].innerText="화이팅";
+			}  
+			/*
+			mytest = document.getElementsByName('my');
+			mytest[0].innerText="헬로"; */
+	}
+</script>
+
+</head>
+
+<body>
+	<h1 name="my">Test1</h1>
+	<h1 name="my1">Test1</h1>
+	<div id='mydiv'>KOREA</div>
+	<p>코리아</p>
+	<p>코리아1</p>
+	
+	<button onclick="fn()">확인</button>
+
+</body>
+</html>

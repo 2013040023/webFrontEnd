@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style>
+body{
+	margin : 0 auto;
+	background: pink;
+}
+img{
+	margin: auto;
+	width: 200px;
+	height: 150px;
+}
+div{
+	width:  200px;
+	height: 50px;
+	margin: 0 auto;
+}
+#header{
+	width: 370px;
+	height: 70px;
+	margin: 0 auto;
+}
+button{
+	background-color: blue;
+	width: 160px;
+	height: 30px;
+
+}
+</style>
+<script>
+	function cal() {
+		pjo = Number(product.value);
+		myM = Number(money.value);
+		
+		result = myM - pjo;
+		result=Number(result);
+		
+		console.log("거스름돈:"+result);
+		
+		five = result%500;
+		re = result/500;
+		fivehundred.value = parseInt(re);
+		console.log("500원 뺀 나머지:"+five);
+		
+		one = five%100;
+		re1 = five/100;
+		onehundred.value = parseInt(re1);
+		console.log("100원뺀 나머지:"+one);
+		
+		fif = one%50;
+		re2 = one/50;
+		fifty.value = parseInt(re2);
+		console.log("50원뺀 나머지"+fif);
+		
+		ten = fif%10;
+		re3 = fif/10;
+		ship.value = Number(re3);
+		console.log("10원뺀 나머지"+ten);
+		
+	}
+
+</script>
+</head>
+<body>
+	<div id="header"><h2 style="text-align: center">거스름돈 계산 프로그램</h2></div>
+	
+	<div>
+		제품가격 : <input id='product' type="text">
+	</div>
+	<div>
+		제출금액 : <input id="money" type="text">
+	</div>
+	
+	<div>
+		<button onclick="cal()">잔돈계산</button>
+	</div>
+	
+	<div>
+		500원 : <input id="fivehundred" type="text"><br>
+		100원 : <input id="onehundred" type="text"><br>
+		50원 &nbsp: <input id="fifty" type="text"><br>
+		10원 &nbsp: <input id="ship" type="text">
+	</div>
+
+</body>
+</html>

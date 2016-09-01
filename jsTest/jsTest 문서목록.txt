@@ -1,0 +1,377 @@
+jsTest 문서목록: javascript
+---------------------------
+a.html alert 창 띄우기
+b.html 변수이름 테스트
+	a= 10;
+	b= 20;
+	$c= 30;
+	한글=40;
+	abc_def=50;
+	
+	console.log(a);
+	console.log(typeof(a));
+c.html 변수 테스트마찬가지 ㅇㅅㅇ
+	c="kor\nea";
+	d='he\tllo';
+	e='철수야 \"놀자\"';
+
+cal.html 계산기 js 버전
+coinCal.html 거스름돈 계산 프로그램 선형이 언니꺼
+d.html true,false 타입 test
+e.html onclick="fn()"
+f.html 객체 선언
+	obj={a:10, b:3.14, c:"korea", fn:function(){ alert('aaa'); } }
+g.html 객체 출력
+h.html 수식 /*% 출력
+i.html prompt (입력)
+	my = prompt("반지름 입력: ");
+	console.log(my);
+j.html ++연산자
+k.html >>연산자
+l.html !=연산자
+m.html &&연산자
+n.html 삼항조건 연산자
+	a= 10>3 ? '크다' : '작다';
+	console.log(a);
+o.html delete
+	obj={name:'홍길동',age:30};
+	console.log(obj);
+	
+	delete obj.name;
+	console.log(obj);
+	
+	console.log("name" in obj);
+p.html value 값과 src값 바꾸어주기
+		
+		mytxt.value="올림픽";
+		myimg.src="image/img2.jpg";
+	
+
+q.html innerText 값 설정해 주기
+	mydiv.innerText='올림픽';
+
+s.html if,else if.else 문
+t.html
+		dt=new Date();
+		console.log( dt.getFullYear() );
+		console.log( dt.getMonth()+1 );
+		console.log( dt.getDay() );
+		console.log( dt.getHours() );
+		console.log( dt.getMinutes() );
+u.html switch,case,break문
+v.html while 문
+w.html do while 문
+x.html n in myj
+y.html goto 문 실습
+	a=0;
+ 	while(a<10){
+ 		if(a==5)
+ 			{goto MY}
+ 		console.log(a);
+ 		a++;
+ 	}
+ 	console.log('hello');
+ 	console.log('hi');
+ 	MY:
+ 		console.log('korea');
+ 	
+z.html try catch문 error 실습
+		function fn(a){
+			if(a==3)
+			throw Error("myerror");
+		
+			return a;
+		}
+		
+		try{
+/* 			rst=fn(3);
+			console.log("rst=",rst); */
+/* 			a="abc";
+			a=Number(a);
+			b=a+3;
+			console.log(b); */
+
+			rst=10/0;
+		}catch(e){
+			console.log("error:",e.message);
+		}
+---------------------------------------
+z1.html 구구단
+z2.html table 추가 삭제 수정 모두삭제
+	function fn(){		
+			myrow=mytable.insertRow();
+			cell1 =myrow.insertCell();
+			cell2 =myrow.insertCell();
+			cell1.innerText="cell1";
+			cell2.innerText="cell2"; 		
+	}
+	
+	function fn1(){
+			mytable.deleteRow(1);
+	}
+	
+	function fn2(){
+			/* n=mytable.rows.length;
+			alert("갯수"+n);
+			 */
+	 		row=mytable.rows[2];
+			 row.cells[1].innerText='My';
+			 // alert(row.cells[0].innerText);
+	/* 		 row.cells[0]; */
+	
+	}
+	function fn3(){
+			n=mytable.rows.length+1;
+			
+			for(n in mytable){
+				mytable.deleteRow(1,n);
+			}
+	}
+
+z3.html <body onload="init()">
+
+		my=function(){
+//			alert("call");
+		mydiv.innerText='korea';
+		
+		}	
+		
+/*=same function my(){
+			alert("my call");
+		}
+ */		
+ 
+ 		function init(){
+	 		alert('init');
+	 		my();
+ 		}
+	</script>
+
+</head>
+
+
+<body onload="init()">
+	<a href="javascript:my()">확인</a>
+	<button onclick="my()">호출</button>
+	<div id="mydiv">hello</div>
+</body>
+
+z4.html 함수 캡슐화
+z5.html 원의 면적구하기 함수 캡슐화
+z6.html 전역변수 지역변수=>함수 안에서 var 라고 선언해줘야 한다.
+z7.html 함수복사
+z8.html setInterval , clearInterval 사용
+
+	<script>
+			nCnt=0;
+			mystr=['나는','자랑스런','태극기','앞에'];
+			
+			function fn(){
+				myInt=setInterval(my,1000);
+			}
+			
+			
+			function my(){
+				if(nCnt==4)
+						nCnt=0;
+				
+				mydisp.innerText=mystr[nCnt];
+				nCnt++;
+			}
+			
+			function fn1(){
+				clearInterval(myInt);
+			}
+
+	</script>
+z9.html setInterval(함수,초);
+	함수안에 익명함수를 넣을수 잇당
+z10.html 클래스네임 부여
+
+	mydiv.className="myclass"; 
+z11.html 
+
+ 		my=document.querySelectorAll('p');
+z12.html
+
+		my2[n].textContent="hello";
+z13.html querySelector
+
+		my3 = document.querySelector("[name='grade']:checked");
+		console.log(my3.value);
+		
+		
+		my4=document.querySelectorAll("[type='checkbox']:checked");
+		my="";
+		for(var i=0;i<my4.length;i++){
+			my += my4[i].value+" ";	
+		 } 
+		console.log(my);
+
+		
+		my5 = document.querySelector("select > option:checked");
+		console.log(my5.value);
+z14.html for문을 이용한 querySelectorAll
+			my=document.querySelectorAll('li:NTH-CHILD(2n)');
+			
+			for(n=0;n<my.length;n++){				
+				my[n].innerText="hello";
+				my[n].style.backgroundColor="yellow";
+			} 
+z15.html addEventListener
+	mybtn.addEventListener("click",fn);
+z16.html  id 값 이벤트 부여
+		mybtn.onclick=function(){
+			alert("call");	
+		}
+z17.html id 값 js 로 css 입히기
+
+			 {
+				mytxt1.style.backgroundColor="blue";
+			}
+			 mytxt1.onblur=function()
+			 {
+
+				 mytxt1.style.backgroundColor="yellow";
+			 }	
+z18.html onkeydown code
+ mytxt1.onkeydown=function(e)
+		 {
+			mytxt2.value="키보드:"+e.keyCode;				
+		}	 
+z19.html 
+	mydiv.onmouseover = function() {}
+	mydiv.onmouseout = function() {}
+
+z20.html
+	chk.onclick=function()
+		{
+			if(chk.checked){
+				result.innerText=chk.value;
+			}
+			else{
+				result.innerText="학생 아님";
+			}
+		}
+
+z21.html innerText로 값출력
+z22.html setName,getName
+z23.html
+	with(myobj){
+		console.log(name,age);
+		setName('임꺽정');
+		console.log(getName());
+	}
+z24.html 	//javascript 기반,class 정의
+	function Sungjuk(name,kor,eng,math){
+		this.name=name;
+		this.kor=kor;
+		this.eng=eng;
+		this.math=math;
+		
+// 		this.SSum=function(){
+// 			return this.kor+this.eng+this.math;
+// 		}
+
+	}
+	//메모리  측면에서는 이것이 효율적이다.
+	Sungjuk.prototype.SSum=function(){
+		return this.eng+this.kor+this.math;
+	}
+
+	Sungjuk.prototype.AVG=function(){
+		return (this.eng+this.kor+this.math)/3;
+		//return (this.SSum()/3);
+	}
+	
+	arr=[];
+	arr.push(new Sungjuk('김연주',90,80,50));
+	arr.push(new Sungjuk('한승덕',50,50,100));
+	arr.push(new Sungjuk('라이언',100,100,100));
+	
+	for(n in arr){
+		console.log(arr[n].name);
+	}
+
+z25.html 새창띄우고, 스크린 크기에 맞추기, 앞으로,뒤로
+
+	function fn(){
+		myWin=window.open("a.html","test","width=300,height=200,toolbar=no");
+	}
+
+ 	function fn1(){
+ 		myWin.resizeTo(screen.availWidth,screen.availHeight);
+ 		myWin.focus();
+//  	myWin.moveTo(500,500);
+// 		myWin.resizeTo(500,500);
+//  	
+	}
+
+ 	
+ 	function fn2(){
+ 		txt="Browser CodeName:"+navigator.appCodeName;
+ 		txt+="Browser Name:"+navigator.appName;
+ 		txt+="Browser Version:"+navigator.appVersion;
+ 		console.log(txt);	
+ 	}
+ 	
+ 	function fn3(){
+ 		console.log(location.href);
+ 		location.replace("http://www.naver.com");
+ 		
+ 	}
+ 	
+ 	function fn4(){
+ 		history.back();
+ 	}
+ 	
+ 	function fn5(){
+ 		history.forward();
+ 	}
+
+z26.html get방식
+z26_yeonju.html 주소록관리 table 형식
+		len=mytable.rows.length;
+		for(i=1;i<len;i++)
+			mytable.deleteRow(1);
+ 		
+		for(n in arr){
+			myrow=mytable.insertRow();
+			cell1 =myrow.insertCell();
+			cell2 =myrow.insertCell();
+			cell3 =myrow.insertCell();
+			
+			console.log("이름:",arr[n].name,"나이:",arr[n].age,"생일:",arr[n].birth);			
+		
+			cell1.innerText =arr[n].name;
+			cell2.innerText =arr[n].age;
+			cell3.innerText =arr[n].birth;
+		}
+---------------------------
+과제
+
+kimyeonju1.html area 구하기
+kimyeonju2.html prompt로 반지름 입력받아서 area구하기
+kimyeonju3.html 합격 불합격 삼항조건 연산자를 이용해서 표시
+kimyeonju4.html 절대값 구해서 합하기
+kimyeonju5.html 합구하기
+kimyeonju6.html 환율 구하기
+kimyeonju7.html =coinCal.html 거스름돈 계산프로그램
+kimyeonju8.html 화씨섭씨 계산
+kimyeonju9.html 점수에 따른 합격여부 이미지로 보여주기
+kimyeonju10.html 절대값 합
+kimyeonju11.html 학점계산 프로그램
+kimyeonju12.html switch 문을이용한 홀수짝수
+kimyeonju13.html switch문을 이용한 학점계산 
+kimyeonju14.html while문을 통한 10까지의 합
+kimyeonju15.html 3의배수 4의배수를 제외한 100까지의 합
+kimyeonju16.html 3의배수를 제외한 continue문을 활용한 10까지의 합
+
+
+y1.html for문을 이용한 구구단
+y2.html 수치계산 프로그램(약수,소수,4/5배수의합)
+y3.html 학생관리 프로그램 테이블 없이 (splice를 이용해서 삭제구현)
+y4.html 숫자 3개 최댓값 찾기
+y5.html 학생관리 프로그램 테이블 사용
+y6.html 계산기 프로그램
+y7.html 학생 관리 프로그램 삭제 구현x

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style>
+div>input:focus {
+	background-color: yellow;
+}
+
+textarea:focus {
+	background-color: yellow;
+}
+
+fieldset fieldset {
+	background-color: #edb3ff;
+}
+
+fieldset {
+	background-color: #e580ff;
+}
+
+div {
+	width: 150px;
+}
+</style>
+<script>
+	function chk() {
+		if (customer.value == "") {
+			alert("이름을 입력하세요");
+			return false;
+
+		} else if (phoneNum.value == "") {
+			alert("전화번호를 입력하세요");
+			return false;
+		} else if (email.value == "") {
+			alert("email를 입력하세요");
+			return false;
+		} else {
+			txArea.value = "";
+			pSize = document.querySelector('[name="size"]');
+			topping = document.querySelectorAll('[type="checkbox"]:checked');
+			myTo = "";
+			console.log(pSize.value);
+			for (n = 0; n < topping.length; n++) {
+				myTo += topping[n].value + " ";
+			}
+			txArea.value = "고객명 : " + customer.value + "\n" + "전화번호 : "
+					+ phoneNum.value + "\n" + "이메일 : " + email.value + "\n"
+					+ "토핑 : " + myTo + "\n" + "피자 사이즈 : " + pSize.value;
+		}
+
+	}
+</script>
+</head>
+<body>
+	<fieldset>
+
+		<div>
+			<label for="customer">고객명</label><input id="customer" type="text"
+				required><br> <label for="phoneNum">전화번호</label><input
+				id="phoneNum" type="Tel" required><br> <label
+				for="email">이메일</label><input id="email" type="email" required><br>
+		</div>
+
+		<fieldset>
+			<legend>피자사이즈</legend>
+			<input id="small" type="radio" name="size" value="Small">Small<br>
+			<input id="medi" type="radio" name="size" value="Medium">Medium<br>
+			<input id="lar" type="radio" name="size" value="Large">Large<br>
+
+		</fieldset>
+
+
+		<fieldset>
+			<legend>토핑</legend>
+			<input id="bacon" type="checkbox" value="베이컨">베이컨<br> <input
+				id="che" type="checkbox" value="치즈">치즈<br> <input
+				id="onion" type="checkbox" value="양파">양파<br> <input
+				id="mushroom" type="checkbox" value="버섯">버섯<br>
+
+		</fieldset>
+		<label for="btime">희망배송시간</label><input id="btime" type="time"
+			min="10:00" max="22:00" required="required"><br> <br>
+		<label for="cs">배송시 요청사항</label>
+		<textarea id="cs" rows="3" cols="20"></textarea>
+		<br> <br>
+
+		<button onclick="chk()">확인</button>
+
+	</fieldset>
+
+	<textarea id="txArea" rows="7" cols="30"></textarea>
+
+
+</body>
+</html>

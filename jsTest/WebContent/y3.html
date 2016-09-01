@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<style>
+	#student{
+	text-align:center;
+	}
+</style>
+
+<script>
+	arr=[];
+	
+	function add(){
+		result.innerText="";
+		arr.push({'name':std_name.value,'age':std_age.value});		
+		console.log("이름:",std_name.value,"나이:",std_age.value);
+// 		result.innerText += std_name.value +"\t"+ std_age.value+"\n";		 
+	}
+	
+	
+	function del(){
+		result.innerText="";
+		for(n in arr){	
+			if(std_name.value==arr[n].name&&std_age.value==arr[n].age){
+				console.log("이름:",arr[n].name,"나이:",arr[n].age+ " 삭제");
+				result.innerText = result.innerText+ arr[n].name +"\t"+ arr[n].age+" 삭제\n";				
+				arr.splice(n,1);
+
+			}
+			
+		
+			}		
+		}
+		
+
+		
+		
+
+ 	function showAll(){
+		result.innerText="";
+		
+		for( n in arr )
+		{ 
+			console.log("이름:",arr[n].name,"나이:",arr[n].age);
+		
+			result.innerText = result.innerText+ arr[n].name +"\t"+ arr[n].age+"\n";
+		} 
+		
+		
+	} 
+
+</script>
+
+</head>
+
+<body>
+	<div id="student">
+	<h1>학생관리</h1>
+	이름:<input id="std_name" type="text"><br>
+	나이:<input id="std_age" type="number"><br><br>
+	<button onclick="add()">입력</button> 
+	<button onclick="del()">삭제</button> 
+	<button onclick="showAll()">보기</button><br><br>
+	
+	이름&nbsp;&nbsp;&nbsp;나이<div id="result"></div>
+	
+	</div>
+</body>
+
+</html>

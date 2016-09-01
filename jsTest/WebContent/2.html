@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+    function calc() {
+        var change = Number(submit.value) - Number(price.value);
+
+        a = Math.floor(change / 500);
+
+        change -= a * 500;
+
+        b = Math.floor(change / 100);
+        change -= b * 100;
+
+        c = Math.floor(change / 50);
+        change -= c * 50;
+
+        d = Math.floor(change / 10);
+        change -= d * 10;
+
+        result.innerText = "500원 : " + a + "개\n";
+        result.innerText += "100원 : " + b + "개\n";
+        result.innerText += "50원 : " + c + "개\n";
+        result.innerText += "10원 : " + d + "개\n";
+
+    }
+    </script>
+</head>
+
+<body>
+    <h1>거스름돈 계산 프로그램</h1>
+    <div>
+        <label for="price">제품 가격 : </label>
+
+        <input type="number" id="price">
+    </div>
+    <div>
+        <label for="submit">제출 금액 : </label>
+        <input type="number" id="submit">
+        <button onclick="calc()">잔돈 계산</button>
+        <div id="result">
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+	<script>
+		my=function(){
+//			alert("call");
+		mydiv.innerText='korea';
+		
+		}	
+		
+/*=same function my(){
+			alert("my call");
+		}
+ */		
+ 
+ 		function init(){
+	 		alert('init');
+	 		my();
+ 		}
+	</script>
+
+</head>
+
+
+<body onload="init()">
+	<a href="javascript:my()">확인</a>
+	<button onclick="my()">호출</button>
+	<div id="mydiv">hello</div>
+</body>
+</html>

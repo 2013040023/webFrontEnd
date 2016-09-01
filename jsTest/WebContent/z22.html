@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script>
+
+//정적 	myobj={name:'홍길동',age:20,addr:'서울시 은평구',
+// 			myfn:function(a){
+// 				alert("fn call " + a);
+// 			}}
+
+		myobj=new Object();
+		myobj.name="임꺽정";
+		myobj.age=30;
+		myobj.myfn=function(a){
+			alert("fn call "+a);
+		}
+		
+		console.log(myobj.name);
+		console.log(myobj.age);
+		console.log(myobj['name']);
+		console.log(myobj['age']);
+		myobj.myfn(100);
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

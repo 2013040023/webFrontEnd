@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style>
+	button{
+	width:40px;
+	height:30px;
+	}
+</style>
+<script>
+window.onload=function(){
+
+	 		btn=document.querySelectorAll("button");
+				for(n=0; n<btn.length; n++){
+					btn[n].onclick=fn1;
+				} 				
+			}
+
+		 	function fn1(){			 		
+				if(this.value=="="){			
+					result.value=eval(result.value);
+					console.log(this.value);
+				}else if(this.value=="C"){
+					result.value="";
+				}else{
+			 		result.value+=this.value;	
+					console.log(this.value);
+				}
+
+			}
+				
+</script>
+</head>
+
+<body>
+	display <input id="result" type="text"><br>
+	<button id="c7" value="7">7</button>
+	<button id="c8" value="8">8</button>
+	<button id="c9" value="9">9</button>
+	<button id="c/" value="/">/</button><br>
+	<button id="c4" value="4">4</button>
+	<button id="c5" value="5">5</button>
+	<button id="c6" value="6">6</button>
+	<button id="c*" value="*">*</button><br>
+	<button id="c1" value="1">1</button>
+	<button id="c2" value="2">2</button>
+	<button id="c3" value="3">3</button>
+	<button id="c-" value="-">-</button><br>
+	<button id="c0" value="0">0</button>
+	<button id="c+" value="+">+</button><br>
+	<button id="cc" value="C">Clear</button>
+	<button id="c=" value="=">Enter</button><br>	
+</body>
+
+</html>

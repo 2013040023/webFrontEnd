@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script>
+
+// 	arr=[];
+// 	obj={name:'김연주',age:23};
+// 	arr.push(obj);
+// 	arr.push({name:'한승덕',age:24});
+// 	arr.push({name:'라이언',age:1});
+	
+// 	for(n in arr){
+// 		console.log(arr[n]);
+// 	}
+
+// 	//java 기반
+// 	class Sungjuk{
+// 		String name;
+// 		int kor;
+// 		int eng;
+// 		int math;
+// 		public Sungjuk(String name,int kor,int eng,int math){
+// 			this.name=name;
+// 			this.kor=kor;
+// 			this.eng=eng;
+// 			this.math=math;
+// 		}
+// 		int SSum(){
+// 			return this.kor+this.eng+this.math;
+// 		}
+// 	}
+	
+// 	Sungjuk obj=new Sungjuk("홍길동",70,80,90)
+	
+	
+	//javascript 기반,class 정의
+	function Sungjuk(name,kor,eng,math){
+		this.name=name;
+		this.kor=kor;
+		this.eng=eng;
+		this.math=math;
+		
+// 		this.SSum=function(){
+// 			return this.kor+this.eng+this.math;
+// 		}
+	}
+	//메모리  측면에서는 이것이 효율적이다.
+	Sungjuk.prototype.SSum=function(){
+		return this.eng+this.kor+this.math;
+	}
+
+	Sungjuk.prototype.AVG=function(){
+		return (this.eng+this.kor+this.math)/3;
+		//return (this.SSum()/3);
+	}
+	
+	arr=[];
+	arr.push(new Sungjuk('김연주',90,80,50));
+	arr.push(new Sungjuk('한승덕',50,50,100));
+	arr.push(new Sungjuk('라이언',100,100,100));
+	
+	for(n in arr){
+		console.log(arr[n].name);
+	}
+	
+	
+	
+/*  	obj1=new Sungjuk('김연주',90,80,50);
+	obj2=new Sungjuk('한승덕',50,50,100);
+	obj3=new Sungjuk('라이언',100,100,100); 
+	 */
+	/* 
+	obj={name:'김연주',kor:60,eng:70,math:80,SSum:function(){
+		return this.kor+this.eng+this.math;
+	 }} 이런코드 짜지 마셈
+	*/
+/* 	
+	console.log(obj1.name,obj1.kor);
+	console.log(obj2.name,obj2.kor);
+	console.log(obj3.name,obj3.kor);
+	
+	console.log(obj1.SSum());
+	console.log(obj2.SSum());
+	console.log(obj3.SSum()); */
+	
+
+
+	
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

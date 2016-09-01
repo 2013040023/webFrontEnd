@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+	<script>
+		function fn(a){
+			if(a==3)
+			throw Error("myerror");
+		
+			return a;
+		}
+		
+		try{
+/* 			rst=fn(3);
+			console.log("rst=",rst); */
+/* 			a="abc";
+			a=Number(a);
+			b=a+3;
+			console.log(b); */
+
+			rst=10/0;
+		}catch(e){
+			console.log("error:",e.message);
+		}
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>

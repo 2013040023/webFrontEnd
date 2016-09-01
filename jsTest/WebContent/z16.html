@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset=" ">
+<title>Insert title here</title>
+<script>
+	window.onload=function(){
+		
+		mybtn.onclick=function(){
+			alert("call");	
+		}
+
+		mydiv.onclick=function(){
+			this.innerText="hi...";
+		}
+		
+/* 		mydiv=document.querySelector("div");
+		mydiv.onclick =fn1(); */
+		
+	}
+	
+ 	function fn1(){
+		alert("call1");
+	} 
+	
+</script>
+</head>
+
+<body>
+	<div id="mydiv">test1</div>
+	<div>test2</div>
+	<button id="mybtn">check</button>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script>
+ 
+	 
+	 function my()
+	 {
+		 mytxt1.onkeydown=function(e)
+		 {
+// 			alert("call");
+// 			mytxt2.value=mytxt1.value;
+			mytxt2.value="키보드:"+e.keyCode;				
+		}	 
+	}
+		 
+ 
+</script>
+</head>
+<body onload="my()">
+	<input id="mytxt1" type="text"><br><br>
+	<input id="mytxt2" type="text"><br><br>
+	<button id="mybtn">확인</button>
+</body>
+</html>

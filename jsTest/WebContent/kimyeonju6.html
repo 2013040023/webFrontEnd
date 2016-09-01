@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1, width=device-width"/> 
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<style>
+
+	img{
+		border:1pt solid;
+		width:100px;
+		height:80px;
+		margin-right:20px;
+
+	}
+
+	#ExchangeRate{
+		text-align:center;
+	}
+</style>
+
+
+<script>
+	function fn(){
+		a=Number(korea.value);
+		
+		us.value=a/1117.60;
+		japan.value=a/1104.84;
+		china.value=a/168.40;
+	}
+</script>
+
+</head>
+
+<body>
+	<div id="ExchangeRate">
+	<br>
+	<img src="image/korea.jpg"><input id="korea" type="text"> 원<br><br>
+	<button onclick="fn()">계산</button><br><br>
+	<img src="image/US.jpg"><input id="us" type="text"> 달러<br><br>
+	<img src="image/japan.jpg"><input id="japan" type="text"> 엔화<br><br>
+	<img src="image/china.jpg"><input id="china" type="text"> 위안<br><br>
+	</div>
+</body>
+</html>

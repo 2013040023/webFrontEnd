@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<style>
+	table,th,td{
+		border:2px solid black;
+	}
+
+</style>
+
+<script>
+	function fn(){		
+			myrow=mytable.insertRow();
+			cell1 =myrow.insertCell();
+			cell2 =myrow.insertCell();
+			cell1.innerText="cell1";
+			cell2.innerText="cell2"; 		
+	}
+	
+	function fn1(){
+			mytable.deleteRow(1);
+	}
+	
+	function fn2(){
+			/* n=mytable.rows.length;
+			alert("갯수"+n);
+			 */
+	 		row=mytable.rows[2];
+			 row.cells[1].innerText='My';
+			 // alert(row.cells[0].innerText);
+	/* 		 row.cells[0]; */
+	
+	}
+	function fn3(){
+			n=mytable.rows.length+1;
+			
+			for(n in mytable){
+				mytable.deleteRow(1,n);
+			}
+	}
+	
+</script>
+
+</head>
+
+<body>
+	<button onclick="fn()">추가</button>
+	<button onclick="fn1()">삭제</button>
+	<button onclick="fn2()">수정</button>
+	<button onclick="fn3()">모두 삭제</button>
+	<br><br>
+	
+	<table id="mytable">
+		<tr><th>이름</th><th>나이</th></tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	myobj=new Object();
+	myobj.name="임꺽정";
+	myobj.age=30;
+	
+	console.log(myobj);
+	
+	myobj.setName=function(name)	//캡슐화
+	{
+		this.name=name;
+	}
+	myobj.getName=function(){
+		return this.name;
+	}
+	
+// 	myobj1=myobj;
+// 	console.log(myobj1.name);
+	
+	myobj.setName("홍길동");
+	console.log(myobj.getName());
+	console.log(myobj);
+	
+	for( n in myobj){
+		console.log(n);
+	}
+
+	
+	with(myobj){
+		console.log(name,age);
+		setName('임꺽정');
+		console.log(getName());
+	}
+	
+	delete(myobj.age);
+	console.log(myobj);
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

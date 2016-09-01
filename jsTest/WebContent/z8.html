@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+	<script>
+			nCnt=0;
+			mystr=['나는','자랑스런','태극기','앞에'];
+			
+			function fn(){
+				myInt=setInterval(my,1000);
+			}
+			
+			
+			function my(){
+				if(nCnt==4)
+						nCnt=0;
+				
+				mydisp.innerText=mystr[nCnt];
+				nCnt++;
+			}
+			
+			function fn1(){
+				clearInterval(myInt);
+			}
+
+	</script>
+
+</head>
+
+<body>
+	<button onclick="fn()">시작</button>
+	<button onclick="fn1()">중지</button>
+	<div id="mydisp"></div>
+
+</body>
+
+</html>

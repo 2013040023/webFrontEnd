@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<style type="text/css">
+	div{
+	width:300px;
+	height:300px;
+	border:3px solid black;
+	 }
+	 
+</style>
+
+<script type="text/javascript">
+	function init(){
+		mydiv.onmouseover = function() {
+			mydiv.style.backgroundColor= "yellow";
+		}
+		mydiv.onmouseout = function() {
+			mydiv.style.backgroundColor= "black";
+		}
+	}
+</script>
+</head>
+
+<body onload="init()">
+	<div id="mydiv"></div>
+	<button>check</button>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script>
+	function fn(){
+		myWin=window.open("a.html","test","width=300,height=200,toolbar=no");
+	}
+
+ 	function fn1(){
+ 		myWin.resizeTo(screen.availWidth,screen.availHeight);
+ 		myWin.focus();
+//  	myWin.moveTo(500,500);
+// 		myWin.resizeTo(500,500);
+//  	
+	}
+
+ 	
+ 	function fn2(){
+ 		txt="Browser CodeName:"+navigator.appCodeName;
+ 		txt+="Browser Name:"+navigator.appName;
+ 		txt+="Browser Version:"+navigator.appVersion;
+ 		console.log(txt);	
+ 	}
+ 	
+ 	function fn3(){
+ 		console.log(location.href);
+ 		location.replace("http://www.naver.com");
+ 		
+ 	}
+ 	
+ 	function fn4(){
+ 		history.back();
+ 	}
+ 	
+ 	function fn5(){
+ 		history.forward();
+ 	}
+ 	
+</script>
+</head>
+
+<body>
+	<a href="b.html">이동</a>
+	<button onclick="fn()">쨔쟌</button>
+	<button onclick="fn1()">쨔쟌1</button>
+	<button onclick="fn2()">쨔쟌2</button>
+	<button onclick="fn3()">쨔쟌3</button>
+	<button onclick="fn4()">뒤로 이동</button>
+	<button onclick="fn5()">앞으로 이동</button>
+	
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap table</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<style>
+body{
+     background-color: #777;
+     margin:20px;
+}
+
+</style>
+<script>
+$(init);
+function init(){
+	viewnum=sessionStorage.getItem("num");
+	selectTable(viewnum);
+	
+	$("#list").click(function (){
+		location.href="board.html";
+	})
+	$("#edit").click(function (){
+		location.href="edit_check.html";
+	})
+	
+	$("#delete").click(function (){
+		location.href="delete_check.html";
+	})
+	
+	
+}	
+
+function selectTable(viewnum){
+// 	console.log("viewnum"+viewnum);
+	data={num:viewnum}
+  	$.getJSON('board_view.jsp',data, printTable);
+}
+
+function printTable(arr){
+	for(i in arr){
+		$('#mytablebody').append("<tr><th>title</th><td>" + arr[i].title + "</td></tr>");
+		$('#mytablebody').append("<tr><th>writer</th><td>" + arr[i].writer + "</td></tr>");
+		$('#mytablebody').append("<tr><th>content</th><td>" + arr[i].content+ "</td></tr>");
+	}
+	
+}
+
+</script>
+
+</head>
+
+
+<body>
+
+<div class="container">
+	<fieldset><legend>글 읽기</legend>
+		
+	<div class="table-responsive">
+	  <table id="mytable" class="table table-bordered table-hover">
+
+		    <thead>
+		    </thead>
+	    
+		    <tbody id="mytablebody">		    	
+		    </tbody>    
+	  </table>
+	</div>
+			
+		<button id="list"  type="button" class="btn btn-default">목록</button>
+		<button id="edit"  type="button" class="btn btn-default">수정</button>
+		<button id="delete"  type="button" class="btn btn-default">삭제</button>
+		</fieldset>
+</div>
+
+</body>
+</html>
+

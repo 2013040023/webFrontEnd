@@ -1,0 +1,7 @@
+finalTest
+
+기능
+
+1.bootstrap 이용한 이미지 갤러리 효과
+2.youtube 삽입
+3.JSP를 이용한 글쓰기,읽기,수정,삭제

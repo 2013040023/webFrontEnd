@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap table</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<style>
+body{
+     background-color: #777;
+     margin:20px;
+}
+
+</style>
+<script>
+$(init);
+function init(){
+	viewnum=sessionStorage.getItem("num");
+	
+	$("#list").click(function (){
+		location.href="board.html";
+	})
+	
+	$("#check").click(function (){
+		   data={num:viewnum}
+		   $.getJSON('edit_check.jsp', data,jFn);			   
+	})	
+	
+}	
+
+function jFn(data) {
+	$(data).each(printTable);
+}
+
+function printTable(n, v){	
+	
+		console.log("writer: ",v.writer);
+		console.log("pwd: ",v.pwd);
+		
+		if( ($('#writer').val()==v.writer) && ($('#pwd').val()==v.pwd) ){
+			alert("확인이 완료되었습니다.");
+			location.href="edit.html";
+			
+		}else{
+			alert("작성자와 비밀번호를 확인해 주세요");
+		}
+
+}
+
+
+</script>
+
+</head>
+
+
+<body>
+
+<div class="container">
+	<fieldset><legend>(수정)작성자와 비밀번호 확인</legend>
+			<div class="form-group">	
+			
+		  <label for="writer">writer:</label>
+		  <input type="text" class="form-control" id="writer">
+		
+
+		  <label for="pwd">pwd:</label>
+		  <input type="password" class="form-control" id="pwd">
+			
+			</div>
+		<button id="list"  type="button" class="btn btn-default">목록</button>
+		<button id="check"  type="button" class="btn btn-default">확인</button>
+		</fieldset>
+</div>
+
+</body>
+</html>
+

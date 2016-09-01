@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<title>JQuey Mobile table,listview</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+<div data-role="page" id="pageone">
+
+  <div data-role="header">
+    <h1>home</h1>
+  </div>
+
+
+  <div data-role="main" class="ui-content">    
+  
+	  <ul data-role="listview">
+	  
+	  <!--  class="ui-li-icon" 이 16x16 -->
+  		<li><a href="#"><img src="image/1.jpg" alt="KOREA">KOREA</a></li>
+		<li><a href="#"><img src="image/2.png" alt="FRANCE" class="ui-li-icon">FRANCE</a></li>
+		<li><a href="#"><img src="image/3.png" alt="UK" class="ui-li-icon">UK</a></li>
+		
+		<li>
+		    <a href="#">
+		    <img src="image/1.jpg">
+		    <h2>Google Chrome</h2>
+		    <p>Google Chrome is a free, open-source web browser. Released in 2008.</p>
+		    </a>
+		  </li>
+		  <li>
+		  	<a href="#"><img src="image/2.png"></a>
+		  	<a href="#">Some text</a>		  
+		</ul>
+
+
+
+  <ul data-role="listview" data-inset="true"> 
+  <li><a href="#">Default is right arrow</a></li>
+  <li data-icon="plus"><a href="#">data-icon="plus"</a></li>
+  <li data-icon="minus"><a href="#">data-icon="minus"</a></li>
+  <li data-icon="delete"><a href="#">data-icon="delete"</a></li>
+  <li data-icon="location"><a href="#">data-icon="location"</a></li> 
+  <li data-icon="false"><a href="#">data-icon="false"</a></li>
+</ul>
+
+
+<table data-role="table" data-mode="columntoggle" class="ui-responsive" id="myTable">
+  <thead>
+    <tr>
+      <th data-priority="6">CustomerID</th>
+      <th>CustomerName</th>
+      <th data-priority="1">ContactName</th>
+      <th data-priority="2">Address</th>
+      <th data-priority="3">City</th>
+      <th data-priority="4">PostalCode</th>
+      <th data-priority="5">Country</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Alfreds Futterkiste</td>
+      <td>Maria Anders</td>
+      <td>Obere Str. 57</td>
+      <td>Berlin</td>
+      <td>12209</td>
+      <td>Germany</td>
+    </tr>
+  </tbody>
+</table>
+
+ 
+ <div data-role="content">
+<!-- 	 <ol data-role="listview" data-inset="true">
+	  <li>사과</li>
+	  <li>딸기</li>
+	  <li>포도</li>
+	  <li>수박</li>
+	</ol> -->
+	
+	<ul data-role="listview" data-inset="true">
+	  <li data-role="list-divider">대기업</li>
+		  <li><a href="#">삼성</a></li>
+		  <li><a href="#">LG</a></li>
+		  <li><a href="#">현대</a></li>
+		  <li><a href="#">SK</a></li>
+	  <li data-role="list-divider">대기업</li>
+		  <li><a href="#">삼성</a></li>
+		  <li><a href="#">LG</a></li>
+		  <li><a href="#">현대</a></li>
+		  <li><a href="#">SK</a></li>
+	  
+	</ul>    
+  </div>
+
+</div>
+
+  <div data-role="footer" data-position="fixed">
+    <h1>Footer Text</h1>
+  </div>
+
+</div>
+</body>
+
+</html>

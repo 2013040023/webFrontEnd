@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Ajax xml</title>
+<!-- <script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script> -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src="jquery.xdomainajax.js"></script>
+
+<script>
+
+	function fn(){
+		kia="http://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp?stnId=109";
+		arg={type:'get',url:kia,
+				dataType:'xml',success:JFn,error:errFn}
+			//$.ajax하나면 ajax은 끝남!!
+			$.ajax(arg);
+		}
+	
+	function JFn(data){
+		data=data.responseText;
+		xmlData=$.parseXML(data);		
+	  	console.log(xmlData);
+	  	cnt=0;
+	  	
+	  	cnt=$(xmlData).find('city').length;
+	  	
+
+		for(i=0;i<cnt;i++){
+		  	mycity=$(xmlData).find('city').eq(i);
+	 		$("#view").append("<p><li data-role='list-divider'>"+$(mycity).text()+"</li></p>");
+			$("[data-role='list-divider']").css('text-align','center');
+	 		$(mycity).nextAll().each(xmlEach);
+
+		}
+ 		$("#view").listview("refresh");
+
+	}	
+	
+	function xmlEach(n,v){
+		console.log($(v).text());
+		$("#view").append("<li>"+"<img src='image/1.jpg' class='ui-li-icon'>"+"날짜:"+($(v).find('tmEf').text())+" /날씨:"+($(v).find('wf').text())+" /최저:"+
+				($(v).find('tmn').text())+" /최고:"+($(v).find('tmx').text())+"</li>");
+		
+	}	
+	
+	function errFn(err){
+		console.log("에러",err);
+	}
+	
+</script>
+</head>
+<body>
+<!-- 	<button onclick="view()">입력</button> -->
+	<button onclick="fn()">보기</button>
+	
+	
+	<ul data-role="listview" id="view" data-inset="true">
+
+	</ul>	
+	
+	  </div>
+</body>
+</html>

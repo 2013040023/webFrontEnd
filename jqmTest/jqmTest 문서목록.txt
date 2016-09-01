@@ -1,0 +1,346 @@
+jqmTest 문서목록:JQuert Mobile Page
+-----------------------------------------
+a.html 페이지 이동
+
+b.html btn 사용
+
+버튼
+<button class="ui-btn">Button</button>
+
+수평으로 묶은 버튼
+  <div data-role="controlgroup" data-type="horizontal">
+  <a href="#" class="ui-btn">Button 1</a>
+  <a href="#" class="ui-btn">Button 2</a>
+  <a href="#" class="ui-btn" >Button 3</a>
+</div>
+
+c.html navbar/icon/collapse(열고 닫기)
+
+
+  <div data-role="header">
+      <div data-role="navbar">
+    <ul>
+      <li><a href="#anylink" class="ui-btn-active ui-state-persist">Home</a></li>
+      <li><a href="pgtwo.html" data-transition="none">Page Two</a></li>
+      <li><a href="#anylink">Search</a></li>
+    </ul>
+	  </div>
+  </div>
+
+
+	<a href="#anylink" class="ui-btn ui-icon-search ui-btn-icon-left">Search</a>
+ 
+
+ <!--  class="ui-li-icon" 이 16x16 -->
+  		<li><a href="#"><img src="image/1.jpg" alt="KOREA">KOREA</a></li>
+		<li><a href="#"><img src="image/2.png" alt="FRANCE" class="ui-li-icon">FRANCE</a></li>
+		<li><a href="#"><img src="image/3.png" alt="UK" class="ui-li-icon">UK</a></li>
+
+ <ul data-role="listview" data-inset="true"> 
+  <li><a href="#">Default is right arrow</a></li>
+  <li data-icon="plus"><a href="#">data-icon="plus"</a></li>
+  <li data-icon="minus"><a href="#">data-icon="minus"</a></li>
+  <li data-icon="delete"><a href="#">data-icon="delete"</a></li>
+  <li data-icon="location"><a href="#">data-icon="location"</a></li> 
+  <li data-icon="false"><a href="#">data-icon="false"</a></li>
+</ul>
+
+
+ 	<!-- collapsible -->
+	    <div data-role="collapsible" data-collapsed="false">
+	  <h1>Click me - I'm collapsible!</h1>
+	  <p>I'm the expanded content.</p>
+		</div>
+
+		<!-- collapsible nested -->
+		<div data-role="collapsible">
+		  <h1>Click me - I'm collapsible!</h1>
+		  <p>I'm the expanded content.</p>
+		  <div data-role="collapsible">
+		    <h1>Click me - I'm a nested collapsible block!</h1>
+		    <p>I'm the expanded content in the nested collapsible block.</p>
+		  </div>
+		</div>
+		<!-- collapsibleset -->
+		<div data-role="collapsibleset">
+		  <div data-role="collapsible">
+		    <h1>Click me - I'm collapsible!</h1>
+		    <p>I'm the expanded content.</p>
+		  </div>
+		  <div data-role="collapsible">
+		    <h1>Click me - I'm collapsible!</h1>
+		    <p>I'm the expanded content.</p>
+		  </div>
+		</div>
+
+
+
+
+
+
+d.html table,listview
+
+  <table data-role="table" data-mode="columntoggle" class="ui-responsive" id="myTable">
+  <thead>
+    <tr>
+      <th data-priority="6">CustomerID</th>
+      <th>CustomerName</th>
+      <th data-priority="1">ContactName</th>
+      <th data-priority="2">Address</th>
+      <th data-priority="3">City</th>
+      <th data-priority="4">PostalCode</th>
+      <th data-priority="5">Country</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Alfreds Futterkiste</td>
+      <td>Maria Anders</td>
+      <td>Obere Str. 57</td>
+      <td>Berlin</td>
+      <td>12209</td>
+      <td>Germany</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+ <div data-role="content">
+ <ol data-role="listview" data-inset="true">
+	  <li>사과</li>
+	  <li>딸기</li>
+	  <li>포도</li>
+	  <li>수박</li>
+	</ol> 
+	
+	<ul data-role="listview" data-inset="true">
+	  <li data-role="list-divider">대기업</li>
+		  <li><a href="#">삼성</a></li>
+		  <li><a href="#">LG</a></li>
+		  <li><a href="#">현대</a></li>
+		  <li><a href="#">SK</a></li>
+	  <li data-role="list-divider">대기업</li>
+		  <li><a href="#">삼성</a></li>
+		  <li><a href="#">LG</a></li>
+		  <li><a href="#">현대</a></li>
+		  <li><a href="#">SK</a></li>
+	  
+	</ul>    
+  </div>
+
+
+
+
+
+e.html fieldset container
+
+	<div data-role="main" class="ui-content">
+<!-- jquery mobile radio를 사용할때 반드시 라디오 버튼은 field set,으로 묶어주고 -->
+<!-- name 을 같은 속성 값으로 두고, -->
+<!-- label 태그를 사용해줘야된다 -->
+
+  <label for="red">Red</label>
+  <input type="checkbox" name="favcolor" id="red" value="red">
+
+  <fieldset data-role="controlgroup">
+    <legend>Choose your gender:</legend>
+      <label for="male">Male</label>
+      <input type="radio" name="gender" id="male" value="male">
+      <label for="female">Female</label>
+      <input type="radio" name="gender" id="female" value="female"> 
+  </fieldset>
+
+  
+  <div class="ui-field-contain">
+    <label for="fname">First name:</label>
+    <input type="text" name="fname" id="fname">
+    <label for="lname">Last name:</label>
+    <input type="text" name="lname" id="lname">
+  </div>
+
+		
+		
+</div>
+
+
+
+
+
+
+
+f.html select,slider,flip toggle,data-theme
+
+
+  <div data-role="main" class="ui-content">
+  
+  	  		<button id="mybtn" onclick="btnButton()">바뀌어랏</button>
+  	  		
+    <label for="switch">Flip toggle switch checkbox:</label>
+<!--     control 명:flipswitch -->
+    <input type="checkbox" data-role="flipswitch" name="switch" id="switch">
+  
+  		<button onclick="fn()">값 설정</button>
+      <input type="range" name="points" id="points" value="0" min="0" max="100">
+      
+    <label for="day">Select Day</label>
+    <select name="day" id="day">
+      <option value="mon">Monday</option>
+      <option value="tue">Tuesday</option>
+      <option value="wed">Wednesday</option>
+    </select>
+    
+  </div>
+	<script>
+
+nCnt=0;
+	function btnButton(){
+		//체크박스는 prop()을 이용해야한다. attr()를 쓰면 안된다.
+		//$('#switch').prop('checked',true).flipswitch('refresh');
+		a=$('#switch').prop('checked')
+		a? alert("on"):alert("off");
+
+	
+	}
+	function fn(){
+		setInterval(sFn,1000);
+	}
+	
+	function sFn(){
+		nCnt+=10;
+		
+		//refresh를 해주어야 화면도 바뀐다.
+		$("#points").val(nCnt.toString()).slider('refresh');
+//.toString()
+		if(nCnt==100){
+			clearInterval(myIn)
+		}
+		
+	}
+	</script>
+
+g.html on,ready,tab,slide,changePage,pageshow,toolbar
+
+
+
+<script>
+
+	//call이 먼저 뜨는것을 볼 수 있따.
+	$( function(){
+		alert("ready");
+	})
+
+	$(document).on("pagecreate","#pageone",function(){
+		alert('call');
+	});
+	
+	$( function(){
+		$('#mydiv').on('tap', function(){
+			alert('tap');	
+		})
+	})
+
+	
+	$( function(){
+		$('#mydiv').on('taphold', function(){
+			alert('taphold');	
+		})
+	})
+
+	
+	$( function(){
+		$('#mydiv').on('swipe', function(){
+			alert('swipe');	
+		})
+	})
+
+	$(function (){
+		$(document).on('swipeleft',"#pageone",function(){
+				$.mobile.changePage("#pagetwo",{ transition :'slide'} );
+		})
+		
+		$(document).on('swiperight',"#pagetwo",function(){
+			$.mobile.changePage("#pageone",{ transition :'slide',reverse:true} );
+		})
+		
+		
+		//잘기억하기. 쓰이는 일이 많다.
+		$(document).on("pageshow","#pagetwo",function(){
+			alert("pagetwo is now shwon");
+		});
+	})
+
+</script>
+
+<div data-role="header">
+	    <a href="#pageone" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a>
+	  <h1>Welcome To My Homepage</h1>
+	  <a href="#pagetwo" class="ui-btn ui-icon-search ui-btn-icon-left">Search</a>
+
+  <div data-role="main" class="ui-content">
+		 <div id="mydiv">여기......................................</div>
+	 <a href="#pagetwo">이동</a>
+	  </div>
+
+
+h.html panel(왼쪽 열고접기)
+
+<!-- panel 은 평소에 보이지 않고,  id에 대한 anchor를 하는 순간에 panel이 보인다. -->
+		  <div data-role="panel" id="myPanel" data-display="overlay">
+		  <h2>Panel Header..</h2>
+		  <p>Some text..</p>
+  		<a href="#pageone" data-rel="close" class="ui-btn ui-btn-inline">Close Panel</a>
+			</div>
+			
+			
+  <div data-role="main" class="ui-content">
+			    <p>1번째 페이지 입니다</p>
+  				<a href="#myPanel" class="ui-btn ui-btn-inline">Open Panel</a>
+  				<table data-role="table" data-mode="columntoggle" class="ui-responsive">
+<!--   				반응형 -->
+  					<thead>
+  					<tr><th data-priority="1">헤더 1</th><th data-priority="2">헤더 2</th></tr>
+  					</thead>
+  					
+  					<tbody>
+  					<tr><td>test1</td><td>test2</td></tr>
+  					<tr><td>test1</td><td>test2</td></tr>
+  					<tr><td>test1</td><td>test2</td></tr>
+  					</tbody>
+  					
+ 
+
+--------------------------------------------------------------
+과제
+
+y1.html 이름/나이 출력 모바일 listview로 만들기
+
+<script>
+	function fn(){					
+			myname=$("#fname").val();
+			myage=$("#fage").val();
+			$("#view").append("<li>"+myname+"/"+myage+"</li>");
+			$("#view").listview("refresh");
+			}
+
+</script>
+
+
+  <div data-role="main" class="ui-content">
+	  <label for="fname">First name:</label>
+	  <input type="text" name="fname" placeholder="first name" id="fname">
+	  
+	  <label for="fage">나이</label>
+	  <input type="number" name="fage" placeholder="age" id="fage"> 
+	  
+	<button onclick="fn()">입력</button>
+  
+	<ul data-role="listview" id="view" data-inset="true">
+		<li> 이름 / 나이</li>
+	</ul>	
+ </div>
+
+y2.html 기상청 정보 ajax xml parsing 도시,날씨,최저기온,최고기온
+
+

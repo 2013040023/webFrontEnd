@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<title>JQuey Mobile Page fieldset container</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script>
+
+
+</script>
+</head>
+
+<body>
+<div data-role="page" id="pageone">
+
+  <div data-role="header">
+    <h1>1번째 페이지</h1>
+  </div>
+
+	<div data-role="main" class="ui-content">
+<!-- jquery mobile radio를 사용할때 반드시 라디오 버튼은 field set,으로 묶어주고 -->
+<!-- name 을 같은 속성 값으로 두고, -->
+<!-- label 태그를 사용해줘야된다 -->
+
+  <label for="red">Red</label>
+  <input type="checkbox" name="favcolor" id="red" value="red">
+
+  <fieldset data-role="controlgroup">
+    <legend>Choose your gender:</legend>
+      <label for="male">Male</label>
+      <input type="radio" name="gender" id="male" value="male">
+      <label for="female">Female</label>
+      <input type="radio" name="gender" id="female" value="female"> 
+  </fieldset>
+
+  
+  <div class="ui-field-contain">
+    <label for="fname">First name:</label>
+    <input type="text" name="fname" id="fname">
+    <label for="lname">Last name:</label>
+    <input type="text" name="lname" id="lname">
+  </div>
+
+		
+		
+</div>
+
+
+
+  <div data-role="footer" data-position="fixed">
+    <h1>Footer Text</h1>
+  </div>
+
+</div>
+</body>
+
+</html>

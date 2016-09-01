@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<title>JQuey Mobile Page btn</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+
+<div data-role="page" id="pageone">
+  <div data-role="header">
+    <h1>1번째 페이지</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <p>1번째 페이지 입니다</p>
+<!--     버튼 -->
+    <input type="button" value="Button">
+    
+    <button class="ui-btn">Button</button>
+    
+    <a href="#anylink" class="ui-btn">Button</a>
+    
+<!--     묶은버튼 -->
+    
+    <div data-role="controlgroup" data-type="horizontal">
+  <a href="#" class="ui-btn">Button 1</a>
+  <a href="#" class="ui-btn">Button 2</a>
+  <a href="#" class="ui-btn" >Button 3</a>
+</div>
+
+  	<a href="#pagetwo" class="ui-btn ui-btn-inline" data-transition="slide">두번째 페이지로 이동</a>
+  </div>
+
+  <div data-role="footer" data-position="fixed">
+    <h1>Footer Text</h1>
+  </div>
+</div>
+   
+<div data-role="page" id="pagetwo">
+
+  <div data-role="header">
+    <h1>2번째 페이지</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <p>2번째 페이지 입니다</p>
+  	<a href="#pageone" data-transition="slide" data-direction="reverse">첫번째 페이지로 이동</a>
+  	<a href="#" class="ui-btn" data-rel="back">Go Back</a>
+  </div>
+
+  <div data-role="footer" data-position="fixed">
+    <h1>Footer Text</h1>
+  </div>
+</div>
+
+</body>
+
+</html>

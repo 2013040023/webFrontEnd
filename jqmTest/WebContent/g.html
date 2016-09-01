@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<title>on,ready,tab,slide,changePage,pageshow,toolbar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script>
+
+// 	//call이 먼저 뜨는것을 볼 수 있따.
+// 	$( function(){
+// 		alert("ready");
+// 	})
+
+// 	$(document).on("pagecreate","#pageone",function(){
+// 		alert('call');
+// 	});
+	
+// 	$( function(){
+// 		$('#mydiv').on('tap', function(){
+// 			alert('tap');	
+// 		})
+// 	})
+
+	
+// 	$( function(){
+// 		$('#mydiv').on('taphold', function(){
+// 			alert('taphold');	
+// 		})
+// 	})
+
+	
+// 	$( function(){
+// 		$('#mydiv').on('swipe', function(){
+// 			alert('swipe');	
+// 		})
+// 	})
+
+	$(function (){
+		$(document).on('swipeleft',"#pageone",function(){
+// 				location.href="#pagetwo";
+
+				$.mobile.changePage("#pagetwo",{ transition :'slide'} );
+		})
+		
+		$(document).on('swiperight',"#pagetwo",function(){
+// 			location.href="#pageone";
+
+			$.mobile.changePage("#pageone",{ transition :'slide',reverse:true} );
+		})
+		
+		
+		//잘기억하기. 쓰이는 일이 많다.
+		$(document).on("pageshow","#pagetwo",function(){
+			alert("pagetwo is now shwon");
+		});
+	})
+
+</script>
+</head>
+
+<body>
+	<div data-role="page" id="pageone">
+
+	  <div data-role="header">
+	    <a href="#pageone" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a>
+	  <h1>Welcome To My Homepage</h1>
+	  <a href="#pagetwo" class="ui-btn ui-icon-search ui-btn-icon-left">Search</a>
+  </div>
+	
+	  <div data-role="main" class="ui-content">
+		 <div id="mydiv">여기......................................</div>
+	 <a href="#pagetwo">이동</a>
+	  </div>
+	
+	  <div data-role="footer" data-position="fixed">
+	    <h1>Footer Text</h1>
+	  </div>
+	</div>
+
+	
+	<div data-role="page" id="pagetwo">
+	
+	  <div data-role="header">
+	    <h1>2번째 페이지</h1>
+	  </div>
+	
+	  <div data-role="main" class="ui-content">
+	    <p>2번째 페이지 입니다</p>
+	  	<a href="a.html">1번째 페이지로 이동</a>
+	  </div>
+	
+	  <div data-role="footer" data-position="fixed">
+	    <h1>Footer Text</h1>
+	  </div>
+
+	</div>
+	
+
+</body>
+
+</html>

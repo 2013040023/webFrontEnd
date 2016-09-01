@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<title>Pannel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+</head>
+
+<body>
+<div data-role="page" id="pageone">
+
+  <div data-role="header">
+    <h1>1번째 페이지</h1>
+  </div>
+
+
+<!-- panel 은 평소에 보이지 않고,  id에 대한 anchor를 하는 순간에 panel이 보인다. -->
+		  <div data-role="panel" id="myPanel" data-display="overlay">
+		  <h2>Panel Header..</h2>
+		  <p>Some text..</p>
+  		<a href="#pageone" data-rel="close" class="ui-btn ui-btn-inline">Close Panel</a>
+			</div>
+			
+			
+  <div data-role="main" class="ui-content">
+			    <p>1번째 페이지 입니다</p>
+  				<a href="#myPanel" class="ui-btn ui-btn-inline">Open Panel</a>
+  				<table data-role="table" data-mode="columntoggle" class="ui-responsive">
+<!--   				반응형 -->
+  					<thead>
+  					<tr><th data-priority="1">헤더 1</th><th data-priority="2">헤더 2</th></tr>
+  					</thead>
+  					
+  					<tbody>
+  					<tr><td>test1</td><td>test2</td></tr>
+  					<tr><td>test1</td><td>test2</td></tr>
+  					<tr><td>test1</td><td>test2</td></tr>
+  					</tbody>
+  					
+  				</table>
+   </div>
+
+  <div data-role="footer" data-position="fixed">
+    <h1>Footer Text</h1>
+  </div>
+
+</div>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<title>on,ready,tab,slide,changePage,pageshow,toolbar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script>
+
+arr=["image/img1.jpg","image/img2.png","image/img3.png"];
+
+	$(function (){
+		$(document).on('swiperight',"#pageone",function(){
+			$("img").src()=arr[1];
+			})
+		
+		$(document).on('swiperight',"#pageone",function(){
+			$("img").src()=arr[2];
+		})
+		
+		$(document).on('swipeleft',"#pageone",function(){
+			$("img").src()=arr[1];
+		})
+		
+		$(document).on('swipe',"#pageone",function(){
+			$("img").src()=arr[0];
+		})
+		
+		$(document).on('swipe',"#pageone",function(){
+			$("img").src()=arr[2];
+		})
+		
+	})
+
+</script>
+</head>
+
+<body>
+	<div data-role="page" id="pageone">
+	  <div data-role="header">
+	  </div>	
+	  <div data-role="main" class="ui-cotent">	  
+
+	  		<img src="image/1.jpg">
+
+	  </div>
+	
+	  <div data-role="footer" data-position="fixed">
+	  </div>
+	</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>localStorageTest</title>
+	
+	<script>
+	function fn(){
+		localStorage.setItem("name","김연주");
+		localStorage.setItem("age","23");
+		localStorage['address']='인천광역시';
+		localStorage.phone="010-111-1111";
+	}
+	
+	function fn1(){
+		myname=localStorage.getItem("name");
+		myage=localStorage.getItem("age");
+		myaddress=localStorage.getItem('address');
+		myphone=localStorage.getItem('phone');
+		
+		mydisp.innerText="이름: "+ myname +" 나이: " + myage;
+		mydisp.innerText+=" 주소: "+ myaddress+" 전화: "+myphone;
+	
+	}
+	
+	function fn2(){
+		alert(localStorage.key(0));
+		//삭제
+		//localStorage.removeItem('name');
+	}
+	</script>
+	
+</head>
+
+
+<body>
+	<div id="mydisp">표시</div>
+	<button onclick="fn()">쓰기</button>
+	<button onclick="fn1()">읽기</button>
+	<button onclick="fn2()">확인</button>
+	
+</body>
+</html>

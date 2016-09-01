@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html manifest="my1.manifest">
+
+<head>
+<meta charset="EUC-KR">
+<title>manifestTest1</title>
+<script>
+	window.onload=function(){
+		applicationCache.onupdateready=function(){
+			applicationCache.swaCache();
+			location.reload();
+		}
+	}
+</script>
+</head>
+
+<body>
+	<h1>HI TEST~~~~~~~! Hello</h1>
+	<img src="img2.jpg"><br>
+
+</body>
+
+</html>

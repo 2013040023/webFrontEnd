@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<title>webSQL DB TEST</title>
+	
+	<script>
+		function dbOpen(){	
+			//영구 저장 DB이름,버전,설명,DB사이즈 3KMB
+			db=window.openDatabase('mydb','1.0','yeonju DB',1024*1024*3);
+			db.transaction(sqlFn, errFn, successFn);
+		}
+		
+		function dbInsert(){			
+			db=window.openDatabase('mydb','1.0','yeonju DB',1024*1024*3);
+			db.transaction(sqlFn, errFn, successFn);
+		}
+		
+		function sqlFn(tx){
+// 			mysql="create table if not exists emp("
+// 					+"emp_id integer primary key autoincrement,"
+// 					+"name char(20),tel char(15))"
+
+//  	 		mysql="create table if not exists student(name varchar(20),age int)";
+// 				tx.executeSql(mysql);
+
+				mysql="insert into student(name,age) values('김연주',23)";
+				tx.executeSql(mysql);
+			
+		}
+		function errFn(err){
+			mydisp.innerText="실패";
+		}
+		function successFn(){
+			mydisp.innerText="성공";
+		}
+		
+	</script>
+</head>
+
+<body>
+	<div id="mydisp">표시</div><br>
+	<button onclick="dbOpen()">db 오픈</button>
+	<button onclick="dbInsert()">db 추가</button>
+</body>
+</html>

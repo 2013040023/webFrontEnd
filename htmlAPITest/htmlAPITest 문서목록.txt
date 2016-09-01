@@ -1,0 +1,351 @@
+htmlAPITest 문서목록: googleMap,
+----------------------------------
+appTest.html manifestTest
+
+<html manifest="my.manifest">
+
+appTest1.html manifestTest1
+
+indexDBTest.html 
+
+	function openFn(){
+		
+		request=indexedDB.open("myDB");	//db생성
+		
+		//open해서 db를 열었는데, 없으면 이것이 실행
+		request.onupgradeneeded=function()
+		{
+			db=request.result;
+		
+			keyField={keyPath:"sabun"}
+			
+			//mybiz라는 일종의 테이블
+			store=db.createObjectStore("mybiz",keyField);
+			
+			store.createIndex("by_name","name");
+			store.createIndex("by_age","age");
+			
+			//console.log("table create");
+			mydiv.innerText="table create";
+		}
+	}
+	
+	function insertFn(){
+		db=request.result;
+		tx=db.transaction("mybiz","readwrite");
+		//tb
+		store=tx.objectStore("mybiz")
+		store.put({sabun:1001,name:"김다정",age:26})
+		store.put({sabun:1002,name:"김연주",age:23})
+	}
+	
+	function getData(){
+		db=request.result;
+		tx=db.transaction("mybiz");
+		//tb
+		store=tx.objectStore("mybiz");
+		
+		req=store.openCursor()
+		req.onsuccess=function(){
+			cursor=req.result;
+			if(cursor){
+				console.log("사번:"+cursor.value.sabun+" 이름:"+cursor.value.name+" 나이:"+cursor.value.age);
+				cursor.continue();
+			}else{
+				console.log("더이상 존재하지 않음")
+			}
+		}
+	}
+	
+	function deleteData()
+	{
+		db = request.result;
+		var tx=db.transaction("mybiz","readwrite")
+		.objectStore("mybiz")
+		.delete(1001);
+		
+		tx.onsuccess=function(){
+			console.log("삭제성공")
+		}
+		
+	}
+
+mygeoTest.html 위치정보 받아오기
+	function fn(){
+		navigator.geolocation.getCurrentPosition(successCallback,errorCallback);
+	}
+	
+	function successCallback(position){
+		lat=position.coords.latitude;
+		lng=position.coords.longitude;
+		mydiv.innerText="위도: "+lat+" 경도: "+lng;
+	}
+	
+	function errorCallback(err){
+		mydiv.innerText="실패:"+err;
+
+mymapTest.html GoogleMap Test, key는 발급 받아주기!
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgDTRWVLJ2VESoObaOHtEBQ_LeKh0aD48"
+  type="text/javascript"></script>
+ 포함해주기! 
+
+	function fn(){
+		navigator.geolocation.getCurrentPosition(successCallback,errorCallback);
+	}
+	
+	function successCallback(position){
+		lat=position.coords.latitude;
+		lng=position.coords.longitude;
+		console.log("위도: "+lat+" 경도: "+lng);
+		mapfn(lat,lng);
+	}
+	
+	function errorCallback(err){
+		//	mydiv.innerText="실패:"+err;
+	}
+	
+	function mapfn(lat,lng){
+		//map_div=document.getElementById("map_div");
+		//var latlng=new google.maps.LatLng(37.5569493,127.0028892);
+		var latlng=new google.maps.LatLng(lat,lng);
+		//ZOOM 숫자가 높을수록 자세하게, CENTER: 좌표 위치,
+		op={zoom:17,center:latlng,
+				mapTypeId:google.maps.MapTypeId.ROADMAP}
+		//구글맵 지도객체(아래 div ID,옵션(위))에 표시하겠다
+		gmap=new google.maps.Map(map_div,op);
+		
+		var marker=new google.maps.Marker({
+			position:latlng,
+			map:gmap,
+			title:"집합장소"
+		});
+		
+		}
+
+
+ServerSendEvent.html 
+
+
+	function fn() {
+		eventSource=new EventSource("sse.jsp");		
+		
+		//메세지를 받았다면
+		eventSource.addEventListener("message",messageFn);
+		eventSource.addEventListener("mymessage",myFn);
+	
+		//jquery형식으로 한다면!
+		// $(eventSource).on('mymessage',myFn);
+		
+		
+		eventSource.onerror=function(event){
+			if(event.eventPhase==EventSource.CLOSED)
+				console.log("접속 종료됨");
+		}
+	}
+
+	function messageFn(event){
+		//서버에서 문자열로 보냈으니까, 프론트엔드에서 json으로 바꿔줘야 한다.
+		myj=JSON.parse(event.data);
+		
+		for(i in myj){
+		s="<h2>영화제목:"+myj[i].mname+" 관객수:"+myj[i].nCnt+"</h2>";			
+		$("#mydiv").append(s);
+		}
+		// 		console.log("message:",event.data);
+	}
+	
+	function myFn(event){
+		console.log("mymessage:",event.data);
+	}
+	
+	function cfn(){
+		eventSource.close();
+	}
+
+stroageTest.html localStorage Test
+
+	function fn(){
+		localStorage.setItem("name","김연주");
+		localStorage.setItem("age","23");
+		localStorage['address']='인천광역시';
+		localStorage.phone="010-111-1111";
+	}
+	
+	function fn1(){
+		myname=localStorage.getItem("name");
+		myage=localStorage.getItem("age");
+		myaddress=localStorage.getItem('address');
+		myphone=localStorage.getItem('phone');
+		
+		mydisp.innerText="이름: "+ myname +" 나이: " + myage;
+		mydisp.innerText+=" 주소: "+ myaddress+" 전화: "+myphone;
+	
+	}
+	
+	function fn2(){
+		alert(localStorage.key(0));
+		//삭제
+		//localStorage.removeItem('name');
+	}
+
+webSocketTest.html
+ nodejs 설치 필요,npm install websocket -g 해준뒤,
+ node nodesvr.js 하면 됨.
+
+	function connFn(){
+		url="ws://localhost:9090"
+		socket=new WebSocket(url) //socket create connect
+		
+		//jquery로 한다면. $(socket).on('open',함수);
+		socket.onopen=function(event){
+			showDisp.innerText="접속완료";
+			
+		}
+		socket.onmessage=function(event){
+			showDisp.innerText="수신 데이터: "+ event.data;
+		}
+		
+		socket.onclose=function(event){
+			showDisp.innerText="접속 종료";
+		}
+	}
+	
+	function sendFn(){
+		a={name:'aaa',age:30};
+		a=JSON.stringify(a)
+		socket.send( chatIn.value );		
+	}
+
+webSQLTest.html 
+
+
+		function dbOpen(){	
+			//영구 저장 DB이름,버전,설명,DB사이즈 3KMB
+			db=window.openDatabase('mydb','1.0','yeonju DB',1024*1024*3);
+			db.transaction(sqlFn, errFn, successFn);
+		}
+		
+		function dbInsert(){			
+			db=window.openDatabase('mydb','1.0','yeonju DB',1024*1024*3);
+			db.transaction(sqlFn, errFn, successFn);
+		}
+		
+		function sqlFn(tx){
+// 			mysql="create table if not exists emp("
+// 					+"emp_id integer primary key autoincrement,"
+// 					+"name char(20),tel char(15))"
+
+//  	 		mysql="create table if not exists student(name varchar(20),age int)";
+// 				tx.executeSql(mysql);
+
+				mysql="insert into student(name,age) values('김연주',23)";
+				tx.executeSql(mysql);
+			
+		}
+		function errFn(err){
+			mydisp.innerText="실패";
+		}
+		function successFn(){
+			mydisp.innerText="성공";
+		}
+
+
+webSQLTest1.html 추가,수정,삭제
+
+	function init(){
+			//영구 저장 DB이름,버전,설명,DB사이즈 3KMB
+			db=window.openDatabase('mydb','1.0','yeonju DB',1024*1024*3);
+	}
+	
+	function errFn(err){
+		mydisp.innerText="실패";
+	}
+	function successFn(){
+		mydisp.innerText="성공";
+	}
+	
+	function dbInsert(){
+		//transaction 객체가 생성될 때,
+		//sql 관련된 객체를 callback 함수로  넘겨준다.
+		db.transaction(function(tx){
+			mysql="insert into student(name,age) values('한승덕',24)";
+			tx.executeSql(mysql);
+		}, errFn, successFn);
+	}
+	
+	function dbUpdate(){
+		db.transaction(function(tx){
+			mysql="update student set name='오징어' where name='한승덕'";
+			tx.executeSql(mysql);
+		}, errFn, successFn);
+	}
+	
+	function dbDelete(){
+		db.transaction(function(tx){
+			mysql="delete from student where name='오징어'";
+			tx.executeSql(mysql);
+		}, errFn, successFn);
+	}
+	
+
+---------------------------------------------------------
+과제
+
+y2.html localStorage 를 이용한 맛집정보, 시스템(한식양식,중식)
+	korea.onclick = function() {
+			fn1();
+			//url이동함...
+			location.href="y3.html";
+		}
+
+	function fn1(){
+		localStorage.setItem("rest_name","마포나루냉면");
+		localStorage.setItem("rest_addr","서울특별시 마포구 어울마당로 76-1");
+		localStorage.setItem("rest_tel","02-337-5515");
+		localStorage.setItem("rest_menu1","깻잎닭볶음");
+		localStorage.setItem("rest_menu_img","image/food1.jpg");
+		localStorage.setItem("rest_menu_info","깻잎닭볶음입니다.");
+		localStorage.setItem("rest_lat",37.5518160);
+		localStorage.setItem("rest_lng",126.9216480);
+	}
+
+
+y3.html localStorage에서 get해온후, 뿌려준다.
+
+window.onload = function(){
+		rest_name = localStorage.getItem("rest_name");
+		rest_addr = localStorage.getItem("rest_addr");
+		rest_tel = localStorage.getItem("rest_tel");
+		rest_menu1 = localStorage.getItem("rest_menu1");
+		rest_menu_img = localStorage.getItem("rest_menu_img");
+		rest_menu_info = localStorage.getItem("rest_menu_info");
+
+		lat = localStorage.getItem('rest_lat');
+		lng = localStorage.getItem('rest_lng');
+		
+		rest_na.innerText = rest_name;
+		addr.innerText = rest_addr;
+		tel.innerText = rest_tel;
+		menu_name.innerText = rest_menu1;
+		food_img.src = rest_menu_img;
+		menu_info.innerText = rest_menu_info;
+		
+
+		map_div = document.getElementById("map_div");
+		var latlng = new google.maps.LatLng(lat,lng);
+		op={
+				zoom:16, center: latlng,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+		}
+		gmap = new google.maps.Map(map_div,op);
+			
+		var marker=new google.maps.Marker({
+			position: latlng,
+			map:gmap,
+			title: "맛집장소"
+		});
+		
+		
+	}
+	

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>location Test</title>
+<script>
+	function fn(){
+		navigator.geolocation.getCurrentPosition(successCallback,errorCallback);
+	}
+	
+	function successCallback(position){
+		lat=position.coords.latitude;
+		lng=position.coords.longitude;
+		mydiv.innerText="위도: "+lat+" 경도: "+lng;
+	}
+	
+	function errorCallback(err){
+		mydiv.innerText="실패:"+err;
+	}
+</script>
+</head>
+
+<body>
+	<div id="mydiv">위치값</div>
+	<button onclick="fn()">현재위치</button>
+	
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>11주차 과제</title>
+<script>
+	window.onload=function(){
+		korea.onclick = function() {
+			fn1();
+			//url이동함...
+			location.href="y3.html";
+		}
+		china.onclick = function() {
+			fn2();
+			location.href="y3.html";
+		}
+		west.onclick = function() {
+			fn3();
+			location.href="y3.html";
+		}
+	}
+	function fn1(){
+		localStorage.setItem("rest_name","마포나루냉면");
+		localStorage.setItem("rest_addr","서울특별시 마포구 어울마당로 76-1");
+		localStorage.setItem("rest_tel","02-337-5515");
+		localStorage.setItem("rest_menu1","깻잎닭볶음");
+		localStorage.setItem("rest_menu_img","image/food1.jpg");
+		localStorage.setItem("rest_menu_info","깻잎닭볶음입니다.");
+		localStorage.setItem("rest_lat",37.5518160);
+		localStorage.setItem("rest_lng",126.9216480);
+	}
+	function fn2(){
+		localStorage.setItem("rest_name","초마");
+		localStorage.setItem("rest_addr","서울 마포구 와우산로 72");
+		localStorage.setItem("rest_tel","070-7661-8963");
+		localStorage.setItem("rest_menu1","짬뽕,탕수육");
+		localStorage.setItem("rest_menu_img","image/food2.jpg");
+		localStorage.setItem("rest_menu_info","짬뽕,탕수육입니다.");
+		localStorage.setItem("rest_lat",37.5508350);
+		localStorage.setItem("rest_lng",126.9234060);
+	}
+	function fn3(){
+		localStorage.setItem("rest_name","서가앤쿡");
+		localStorage.setItem("rest_addr","서울특별시 마포구 와우산로 128");
+		localStorage.setItem("rest_tel","02-326-5354");
+		localStorage.setItem("rest_menu1","한상차림");
+		localStorage.setItem("rest_menu_img","image/food3.jpg");
+		localStorage.setItem("rest_menu_info","서가앤쿡 한상차림입니다.");
+		localStorage.setItem("rest_lat",37.5532600);
+		localStorage.setItem("rest_lng",126.9276120);
+	}
+</script>
+
+</head>
+<body>
+	<div id = "total">
+		<h2>맛집 정보</h2>
+		<div>
+			<ul>
+				<li><button id="korea">한식집</button></li>
+				<li><button id="china">중식집</button></li>
+				<li><button id="west">양식집</button></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

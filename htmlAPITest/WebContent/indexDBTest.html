@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+	function openFn(){
+		
+		request=indexedDB.open("myDB");	//db생성
+		
+		//open해서 db를 열었는데, 없으면 이것이 실행
+		request.onupgradeneeded=function()
+		{
+			db=request.result;
+		
+			keyField={keyPath:"sabun"}
+			
+			//mybiz라는 일종의 테이블
+			store=db.createObjectStore("mybiz",keyField);
+			
+			store.createIndex("by_name","name");
+			store.createIndex("by_age","age");
+			
+			//console.log("table create");
+			mydiv.innerText="table create";
+		}
+	}
+	
+	function insertFn(){
+		db=request.result;
+		tx=db.transaction("mybiz","readwrite");
+		//tb
+		store=tx.objectStore("mybiz")
+		store.put({sabun:1001,name:"김다정",age:26})
+		store.put({sabun:1002,name:"김연주",age:23})
+	}
+	
+	function getData(){
+		db=request.result;
+		tx=db.transaction("mybiz");
+		//tb
+		store=tx.objectStore("mybiz");
+		
+		req=store.openCursor()
+		req.onsuccess=function(){
+			cursor=req.result;
+			if(cursor){
+				console.log("사번:"+cursor.value.sabun+" 이름:"+cursor.value.name+" 나이:"+cursor.value.age);
+				cursor.continue();
+			}else{
+				console.log("더이상 존재하지 않음")
+			}
+		}
+	}
+	
+	function deleteData()
+	{
+		db = request.result;
+		var tx=db.transaction("mybiz","readwrite")
+		.objectStore("mybiz")
+		.delete(1001);
+		
+		tx.onsuccess=function(){
+			console.log("삭제성공")
+		}
+		
+	}
+</script>
+</head>
+
+<body>
+	<div id="mydiv">표시</div>
+	<button onclick = "openFn()" >db open</button>
+	<button onclick = "insertFn()" >추가</button>
+	<button onclick = "getData()" >보기</button>
+	<button onclick = "deleteData()">삭제</button>
+</body>
+</html>

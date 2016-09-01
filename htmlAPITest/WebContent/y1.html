@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+	
+	<script>
+	
+	function fn(){			
+	
+ 		localStorage['menuName']='짜장면';
+		localStorage['image']='2.jpg';
+ 		localStorage['content']='맛있는 짜장면';
+ 		localStorage['restaurant']='덕화장';
+ 		localStorage['address']='서울특별시 중구 장충동2가 12-3';
+ 		localStorage['tel']='02-2267-1888';
+	}
+	
+	
+	function fn1(){
+		menuName=localStorage.getItem("menuName");
+		image=localStorage.getItem("image");
+		content=localStorage.getItem('content');
+		restaurant=localStorage.getItem('restaurant');
+		address=localStorage.getItem('address');
+		tel=localStorage.getItem('tel');		
+
+		mydisp.innerText ="메뉴명: "+ menuName ;
+		myimg.attributes[0].nodeValue=image;
+		mydisp.innerText+=" 메뉴설명: "+ content+"상호명: "+ restaurant + " 주소: " + address+ " 전화번호: "+ tel;
+	
+	}
+	
+	function fn2(){
+// 		localStorage.removeItem('image');
+		
+	}
+	
+
+	
+	</script>
+	
+</head>
+
+
+<body>
+	<div id="mydisp">표시</div>
+	<button onclick="fn()">중국집 쓰기</button>
+	<button onclick="fn1()">읽기</button>
+<!-- 	<button onclick="fn2()">삭제</button> -->
+	
+	<img src="" id="myimg">
+	
+</body>
+</html>

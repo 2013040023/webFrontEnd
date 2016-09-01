@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>11주차 과제</title>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgDTRWVLJ2VESoObaOHtEBQ_LeKh0aD48"
+  type="text/javascript"></script>
+<script>
+
+	window.onload = function(){
+		rest_name = localStorage.getItem("rest_name");
+		rest_addr = localStorage.getItem("rest_addr");
+		rest_tel = localStorage.getItem("rest_tel");
+		rest_menu1 = localStorage.getItem("rest_menu1");
+		rest_menu_img = localStorage.getItem("rest_menu_img");
+		rest_menu_info = localStorage.getItem("rest_menu_info");
+
+		lat = localStorage.getItem('rest_lat');
+		lng = localStorage.getItem('rest_lng');
+		
+		rest_na.innerText = rest_name;
+		addr.innerText = rest_addr;
+		tel.innerText = rest_tel;
+		menu_name.innerText = rest_menu1;
+		food_img.src = rest_menu_img;
+		menu_info.innerText = rest_menu_info;
+		
+
+		map_div = document.getElementById("map_div");
+		var latlng = new google.maps.LatLng(lat,lng);
+		op={
+				zoom:16, center: latlng,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+		}
+		gmap = new google.maps.Map(map_div,op);
+			
+		var marker=new google.maps.Marker({
+			position: latlng,
+			map:gmap,
+			title: "맛집장소"
+		});
+		
+		
+	}
+	
+	
+</script>
+
+</head>
+<body>
+	<div id="total">
+		<h2>맛집 정보</h2>
+		<div id="map_div" style="width:329px; height:480px;">지도로딩중입니다.</div>
+		<div>
+			메뉴명 : <span id="menu_name"></span><br>
+			이미지 : <img id="food_img"><br>
+			메뉴설명 : <span id ="menu_info"></span><br>
+		</div>
+		<div>
+			상호명 : <span id="rest_na"></span><br>
+			주소 : <span id="addr" ></span><br>
+			전화번호 : <span id="tel"></span><a href="tel:rest_tel">전화</a><br>
+		</div>
+	</div>
+</body>
+</html>

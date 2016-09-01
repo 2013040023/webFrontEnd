@@ -1,0 +1,10 @@
+CACHE MANIFEST
+
+# Version = 2011.11.30.0007
+
+#캐쉬할 파일
+CACHE:
+appTest.html
+my.js
+my.css
+img1.jpg

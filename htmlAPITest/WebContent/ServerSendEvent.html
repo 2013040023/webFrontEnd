@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>eventAPI</title>
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<script>
+	function fn() {
+		eventSource=new EventSource("sse.jsp");		
+		
+		//메세지를 받았다면
+		eventSource.addEventListener("message",messageFn);
+		eventSource.addEventListener("mymessage",myFn);
+	
+		//jquery형식으로 한다면!
+		// $(eventSource).on('mymessage',myFn);
+		
+// 		eventSource.onmessage=function(event){
+// 			console.log(event.data);
+// 		}
+		
+// 		eventSource.mymessage=function(event){
+// 			console.log(event.data);
+// 		}
+		
+		eventSource.onerror=function(event){
+			if(event.eventPhase==EventSource.CLOSED)
+				console.log("접속 종료됨");
+		}
+	}
+
+	function messageFn(event){
+		//서버에서 문자열로 보냈으니까, 프론트엔드에서 json으로 바꿔줘야 한다.
+		myj=JSON.parse(event.data);
+		
+		for(i in myj){
+		s="<h2>영화제목:"+myj[i].mname+" 관객수:"+myj[i].nCnt+"</h2>";			
+		$("#mydiv").append(s);
+		}
+		// 		console.log("message:",event.data);
+	}
+	
+	function myFn(event){
+		console.log("mymessage:",event.data);
+	}
+	
+	function cfn(){
+		eventSource.close();
+	}
+	
+</script>
+</head>
+<body>
+	<button onclick="fn()">수신</button>
+	<button onclick="cfn()">종료</button>
+	<div id="mydiv">표시</div>
+</body>
+</html>

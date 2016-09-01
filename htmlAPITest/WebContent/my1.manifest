@@ -1,0 +1,8 @@
+CACHE MANIFEST
+
+# Version = 1.1
+
+#캐쉬할 파일
+CACHE:
+appTest1.html
+img2.jpg

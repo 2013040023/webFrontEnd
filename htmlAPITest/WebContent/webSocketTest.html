@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>양방향 소켓통신</title>
+<script>
+	function connFn(){
+		url='ws://localhost:9090';
+		socket=new WebSocket(url);
+		//socket create connect
+		
+		//jquery로 한다면. $(socket).on('open',함수);
+		socket.onopen=function(event){
+			showDisp.innerText="접속완료";
+			
+		}
+		socket.onmessage=function(event){
+			showDisp.innerText="수신 데이터: "+ event.data;
+		}
+		
+		socket.onclose=function(event){
+			showDisp.innerText="접속 종료";
+		}
+	}
+	
+	function sendFn(){
+		a={name:'aaa',age:30};
+		a=JSON.stringify(a)
+		socket.send( chatIn.value );		
+	}
+</script>
+</head>
+
+<body>
+	입력:<input id="chatIn" type="text"><br>
+	<div id="showDisp">보기</div>
+	<button onclick="connFn()">접속</button>
+	<button onclick="sendFn()">전송</button>
+</body>
+</html>

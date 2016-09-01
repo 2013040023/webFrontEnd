@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<meta name="viewport" content="initial-scale=1, width=device-width"/>
+<title>webSQL DB INSERT,UPDATE,DELETE</title>
+<script>
+	function init(){
+			//영구 저장 DB이름,버전,설명,DB사이즈 3KMB
+			db=window.openDatabase('mydb','1.0','yeonju DB',1024*1024*3);
+	}
+	
+	function errFn(err){
+		mydisp.innerText="실패";
+	}
+	function successFn(){
+		mydisp.innerText="성공";
+	}
+	
+	function dbInsert(){
+		//transaction 객체가 생성될 때,
+		//sql 관련된 객체를 callback 함수로  넘겨준다.
+		db.transaction(function(tx){
+			mysql="insert into student(name,age) values('한승덕',24)";
+			tx.executeSql(mysql);
+		}, errFn, successFn);
+	}
+	
+	function dbUpdate(){
+		db.transaction(function(tx){
+			mysql="update student set name='오징어' where name='한승덕'";
+			tx.executeSql(mysql);
+		}, errFn, successFn);
+	}
+	
+	function dbDelete(){
+		db.transaction(function(tx){
+			mysql="delete from student where name='오징어'";
+			tx.executeSql(mysql);
+		}, errFn, successFn);
+	}
+	
+</script>
+</head>
+<body onload="init()">
+	<div id="mydisp">표시</div>
+	<button onclick="dbInsert()">추가</button>
+	<button onclick="dbUpdate()">수정</button>
+	<button onclick="dbDelete()">삭제</button>
+	
+</body>
+</html>

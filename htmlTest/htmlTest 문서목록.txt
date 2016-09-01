@@ -1,0 +1,261 @@
+webTest 문서목록:html,css 사용
+---------------------------
+HTML
+
+
+a.html heading tag
+b.html ptag divtag 
+c.html ol li tag
+d.html table test
+e.html image
+f.html block 요소와 line 요소 비교
+g.html 문서 구조(header,nav,article,section,footer) 문서 강조 요소(mark,strong,em) 
+h.html iframe 실습
+i.html audio test
+j.html audio controls="controls"
+k.html video test
+l.html parameter 인자전달 name 부여
+m.html input type 
+n.html iframe에 youtube 연결
+o.html select option,label,input min,max
+p.html datalist-option
+
+-------------------------------------------------------------------------------------------
+CSS
+
+c1.html css 
+c2.html 선택자에 css 부여 ex)[name='aaa]{background-color:yellow;}
+c3.html 선택자(>)
+c4.html 선택자(+)
+c5.html [type="radio"]:checked{}
+c6.html [type="text"]:focus{}
+c7.html #company > li:nth-last-child(2n+1), p:FIRST-OF-TYPE,div:NTH-LAST-OF-TYPE(2N+1)
+c8.html  			p:BEFORE{
+ 				content:"==>대한민국 올림픽 파이팅";
+				font-size:15pt;
+				color:pink;				
+			}
+c9.html 		[name|="aaa"]{
+			background-color:pink;
+		}
+c10.html 	<link type="text/css" rel="stylesheet" href="css/my.css">
+c11.html font체 외부 폰트 사용
+c12.html ctrl+shift+c 하면 어떤 주석이든 달고,풀수 있다.
+	 text-decoration:overline; text-shadow: -10px -10px 10px #0000ff;
+c13.html p.test{text-align:justify; border:3px solid #ff0000;} text-justify의 기능: 양쪽 간격의 줄을 깔끔하게 맞춰준다.
+c14.html div{column-count:2;} column-count 의 기능: 열을 나눠준다.
+c15.html		div{
+				/* border:2px solid red; */
+			border-style: solid;
+			border-width: 5px;
+			border-color: red;
+			border-radius:10px;
+		
+		}
+
+c16.html 			body{
+			background-repeat:no-repeat;
+			background-image:url("image/back.jpg");
+			background-attachment: fixed;
+			background-size:100px 100px;
+		}
+c17.html  			a:link{
+			color:yellow;
+			} 
+			
+			a:visited{
+			color:red;
+			}
+			 ol{
+				 list-style-type:upper-roman;
+				 list-style-position: inside;
+			 }
+c18.html block 요소를 inline 요소로, inline 요소를 block 요소로 display:block 을 이용해서 바꾸어 보았다.
+c19.html  table 속성 꾸미기 table{
+		border-collapse:collapse;
+	}
+	collapse : 서로 이웃하는 테이블이나 셀의 테두리선을 겹쳐서 표현 합니다.
+	separate : 기본값으로 서로 이웃하는 테이블이나 셀의 테두리선을 분리시켜 표현 합니다.
+c20.html css-visibility:hidden;
+c21.html overflow:auto; 	If overflow is clipped, a scroll-bar should be added to see the rest of the content
+c22.html overflow:scroll; The overflow is clipped, but a scroll-bar is added to see the rest of the content
+c23.html 이미지 오른쪽 고정	img{
+	float:right;
+	}
+c24.html 	#mydiv1{
+		clear:both;
+	}
+	No floating elements allowed on either the left or the right side
+c25.html	margin:0 auto; 좌우 여백을 자동으로 계산해줌. 반응형 웹페이지에 적합
+c26.html	iframe target 설정 review(해운대,광안리)
+c27.html 		#div3{
+			display:table-cell;
+		}
+
+	Let the element behave like a <td> element
+=>http://www.w3schools.com/cssref/pr_class_display.asp
+c28.html section 을 나눠서 해운대,광안리
+c29.html 브라우저별 그라디언트 사용
+
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d2dfed+0,99e5e4+26,bed0ea+51,a6c0e3+51,afc7e8+62,bad0ef+75,99b5db+88,799bc8+100 */
+background: #d2dfed; /* Old browsers */
+background: -moz-linear-gradient(top,  #d2dfed 0%, #99e5e4 26%, #bed0ea 51%, #a6c0e3 51%, #afc7e8 62%, #bad0ef 75%, #99b5db 88%, #799bc8 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #d2dfed 0%,#99e5e4 26%,#bed0ea 51%,#a6c0e3 51%,#afc7e8 62%,#bad0ef 75%,#99b5db 88%,#799bc8 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #d2dfed 0%,#99e5e4 26%,#bed0ea 51%,#a6c0e3 51%,#afc7e8 62%,#bad0ef 75%,#99b5db 88%,#799bc8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2dfed', endColorstr='#799bc8',GradientType=0 ); /* IE6-9 */
+		}
+
+c30.html animation 효과 
+
+		img:HOVER{
+			transition-duration:2s;
+			-webkit-transform:translate(100px,100px);
+		}	
+		
+		div:hover{
+			opacity:1;
+			background-color:yellow;
+			transition:2s ease-in;
+			
+		}
+
+c31.html 브라우저 크기별 설정
+
+@media screen and (min-width: 1000px) {
+	
+		div{
+			background:gray;
+			font-size:30pt;
+			width:400px;
+			height:100px;
+		}
+	}
+	
+	@media screen and (min-width: 640px) and (max-width:999px) {
+	
+		div{
+			background:red;
+			font-size:20pt;
+			width:300px;
+			height:75px;
+		}
+	}
+	
+	@media screen and (max-width:639px) {
+	
+		div{
+			background:yellow;
+			font-size:15pt;
+			width:200px;
+			height:50px;
+		}
+	}
+
+
+c32.html  위와 마찬가지
+
+<style media="screen and (min-width:1000px)">
+	div{
+			background:gray;
+			font-size:30pt;
+			width:400px;
+			height:100px;
+		}
+</style>
+
+<style media="screen and (min-width:640px) and (max-width:999px)">
+	div{
+			background:red;
+			font-size:20pt;
+			width:300px;
+			height:75px;
+		}
+	}
+</style>
+
+<style media="screen and (max-width:639px)">	
+		div{
+			background:yellow;
+			font-size:15pt;
+			width:200px;
+			height:50px;
+		}
+</style>
+
+-------------------------------------------------------------------------------------------
+과제
+
+kimyeonju.html 따뜻한음료,차가운음료 실습
+		<th colspan="6">한국의 차</th>
+		<tr><th rowspan="6">뿌리차</th>
+kimyeonju2.html iframe 실습(태국,홍콩,인도네시아)
+kimyeonju3.html 회원 가입 폼 실습
+		이름<input type="text" name="myname" required="required" placeholder="이름을 입력하세요" autofocus required><br>
+kimyeonju4.html 납품정보 제출 폼
+			<li>
+		<label for="number">납품수량</label><br>
+		<input type="number" name="number" value="number" size="20" minlength="10"  placeholder="최소 10개 이상"  min="10" max="100" step="10" required>
+		</li><br>
+		
+		<li><label for="range">납품등급:최고 10등급</label><br>
+		<input type="range" name="grade"  value="grade" min="0" max="10" step="2" required>
+		</li><br>
+
+kimyeonju5.html pizza 주문서 제출
+	<fieldset>
+	<legend name="size" >피자사이즈</legend>
+		<ol>
+			<li><input type="radio" value="small" name="size" required>Small<br></li>
+			<li><input type="radio" value="medium" name="size">Medium<br></li>
+			<li><input type="radio" value="large" name="size">Large<br></li>
+		</ol>
+	</fieldset>
+	
+	<fieldset>
+	<legend name="topping">토핑선택</legend>
+		<ol>
+			<li><input type="checkbox" value="bacon" name="topping">베이컨<br> </li>
+			<li><input type="checkbox" value="cheese" name="topping">치즈<br></li>
+			<li><input type="checkbox" value="onion" name="topping">양파<br></li>
+			<li><input type="checkbox" value="mushroom" name="topping">버섯<br></li>
+		</ol>
+	</fieldset>
+
+kimyeonju6.html 
+	#title{
+		text-align: center;
+		text-shadow: 10px 10px 10px gray;
+		
+	}
+	
+	#name{
+		text-align:right;	
+	}
+	
+	
+	div{
+		column-count: 2;
+		text-align:justify;
+	}
+
+kimyeonju7.html 
+		
+	div::first-letter{
+		font-size:100px;
+		text-transform:uppercase;
+		font-weight:bold;
+	}
+
+kimyeonju8.html
+
+letter-spacing: 3px;
+
+kimyeonju9.html image gallery 실습
+
+	img:NTH-CHILD(3N+2) {
+		clear:both;
+}
+
+
+
+

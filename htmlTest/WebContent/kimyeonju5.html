@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+		<style>
+			form>input:focus{
+				background-color:yellow;
+			}
+			
+			textarea:focus{
+				background-color:yellow;
+			}
+			
+			
+			ol{
+				list-style:none;
+			}
+		</style>
+</head>
+
+
+<body>
+
+	<form action="a.jsp">
+	
+	
+	<label for="name" >고객명:</label>
+	<input id="name" name="name" type="text" required><br>
+	
+	<label for="tel">전화번호:</label>
+	<input id="tel" name="tel" type="tel" required><br>
+	
+	<label for="email">이메일:</label>
+	<input id="email" name="email" type="email" required><br>
+	
+	
+	<fieldset>
+	<legend name="size" >피자사이즈</legend>
+		<ol>
+			<li><input type="radio" value="small" name="size" required>Small<br></li>
+			<li><input type="radio" value="medium" name="size">Medium<br></li>
+			<li><input type="radio" value="large" name="size">Large<br></li>
+		</ol>
+	</fieldset>
+	
+	<fieldset>
+	<legend name="topping">토핑선택</legend>
+		<ol>
+			<li><input type="checkbox" value="bacon" name="topping">베이컨<br> </li>
+			<li><input type="checkbox" value="cheese" name="topping">치즈<br></li>
+			<li><input type="checkbox" value="onion" name="topping">양파<br></li>
+			<li><input type="checkbox" value="mushroom" name="topping">버섯<br></li>
+		</ol>
+	</fieldset>
+	
+	<label for="time">희망 배송시간:</label>
+	<input name="time" valule="time" type="time" required><br><br>
+	
+	<label for="textarea">배송시 요청사항:</label>
+	<textarea name="textarea" value="textarea" width:100px></textarea><br>
+	
+	<button>주문하기</button>
+	</form>
+	
+	
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+
+	<style>
+		table{
+		border-collapse:collapse;
+		 }
+	
+		/* table,th,td{
+			border:1px solid blue;
+		} */
+		
+		th{
+			background-color:green;
+			color:white;
+			height:50px;
+			width:75px;
+			text-align: left;
+		}
+		
+		td{
+			height:30px;
+			padding:10px;
+		}
+		
+		tr{
+			border-bottom: 2px solid black;
+		}
+		
+		tr:NTH-CHILD(2N) {
+			background-color:yellow;
+		}
+				
+		tr:hover{
+			background-color:gray;
+		}
+		
+
+
+	
+	</style>
+	</head>
+
+<body>
+	
+	
+	<table>
+		<tr>
+			<th>이름</th>
+			<th>이메일</th>
+		</tr>
+		<tr>
+			<td>김철수</td>
+			<td>514tndud@naver.com</td>
+		</tr>
+		<tr>
+			<td>김영희</td>
+			<td>514tndud@gmail.com</td>
+		</tr>
+		
+		<tr>
+		<td>김철수</td>
+			<td>514tndud@naver.com</td>
+		</tr>
+		<tr>
+			<td>김영희</td>
+			<td>514tndud@gmail.com</td>
+		</tr>
+		<tr>
+		<td>김철수</td>
+			<td>514tndud@naver.com</td>
+		</tr>
+		<tr>
+			<td>김영희</td>
+			<td>514tndud@gmail.com</td>
+		</tr>
+		
+	</table>
+
+</body>
+
+</html>

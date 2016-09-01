@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<form action="a.jsp">
+		이름<input type="text" name="myname" required="required" placeholder="이름을 입력하세요" autofocus required><br>
+		
+		성별
+		<label for="male">남성</label>
+		<input id="male" type="radio"  value="male" name="sex">
+		<label for="female">여성</label>
+		<input id="female" type="radio" value="female" name="sex"><br>
+		
+		취미
+		운동<input type="checkbox" value="health" name="hobby">
+		음악<input type="checkbox" value="music" name="hobby">
+		개발<input type="checkbox" value="coding" name="hobby"><br>		
+			
+		<input type="submit" value="제출">
+	</form>
+
+</body>
+</html>

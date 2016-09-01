@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="a.jsp">
+	<fieldset>
+	<legend>납품정보</legend>
+		<li>
+		<label for="item">상품명</label><br>
+			<select name="item" required>
+			<option value="도그1004">도그1004</option>
+			<option value="퍼피팝">퍼피팝</option>
+			<option value="유기농잼">유기농잼</option>
+			</select>
+		</li><br><br>
+		
+		<li>
+		<label for="number">납품수량</label><br>
+		<input type="number" name="number" value="number" size="20" minlength="10"  placeholder="최소 10개 이상"  min="10" max="100" step="10" required>
+		</li><br>
+		
+		<li><label for="range">납품등급:최고 10등급</label><br>
+		<input type="range" name="grade"  value="grade" min="0" max="10" step="2" required>
+		</li><br>
+		
+		<li>
+		<label for="message">기타사항</label><br>
+		<textarea name="message" value="message" width="30" height="20" required></textarea><br>
+		</li><br>	
+	<button>제출</button>	
+	</fieldset>
+	
+	</form>
+
+</body>
+</html>

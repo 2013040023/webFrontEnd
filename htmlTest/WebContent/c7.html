@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+	<style type="text/css">
+	
+		#company > li:nth-last-child(2n+1){
+			background-color:yellow;
+			font-family:"궁서체";
+			font-size:15pt;
+			color:red;
+		}
+		
+		p:FIRST-OF-TYPE{
+			color:yellow;
+		
+		}
+		
+		table,td{
+			border:3px solid red;
+		}
+		
+		div:NTH-LAST-OF-TYPE(2N+1){
+			background-color:green;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<ul id="company">
+			<li>삼성</li>
+			<li>현대</li>
+			<li>LG</li>
+			<li>롯데</li>
+			<li>애플</li>
+			<li>SK</li>
+			<li>포스코</li>
+	</ul>
+
+	<ul>
+		<li>사과</li>
+		<li>딸기</li>
+		<li>포도</li>
+	</ul>
+	
+	<table>
+		<tr><td>홍길동</td><td>30</td></tr>
+		<tr><td>이순신</td><td>40</td></tr>
+	</table>
+	
+	<div>test1</div>
+	<div>test2</div>
+	<div>test3</div>
+	<div>test4</div>
+	<div>test5</div>
+	<div>test6</div>
+	<div>test7</div>
+	<div>test8</div>
+	
+
+	<p>test1</p>
+	<p>test2</p>
+	<p>test3</p>
+	<p>test4</p>
+
+</body>
+</html>

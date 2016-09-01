@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>each()함수</title>
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+
+<script>
+	function fn(){
+		arr=[10,20,30,40,50,60,70];
+		myobj=[{name:'김연주',age:23,addr:'인천광역시 연수구'},
+		       {name:'한승덕',age:24,addr:'울산광역시 울주군'}];
+		//인덱스,json object
+		$.each(myobj,arrFn);
+		
+		obj={name:'김연주',age:23,addr:'인천광역시 연수구'};
+		//키,value
+		$.each(obj,arrFn);	
+		
+	}
+	
+	
+// 	$.each(arr,arrFn());
+// 	//arrFn()부분을 익명함수로 설정해줌.
+// 	$.each(arr,function(n,v){
+// 		console.log(n,v);
+// 	})
+	
+	//(인덱스,값)
+	function arrFn(n,v){
+		console.log(n,v);		
+	}
+	
+</script>
+</head>
+
+<body>
+	<div id="mydiv">표시</div>
+	<button onclick="fn()">확인</button>
+</body>
+</html>

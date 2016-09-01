@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<title>JQUERY 기본 동작 방법</title>
+<script>
+	function $( sel ){
+		a=document.querySelector(sel);
+		return a;
+	}
+	
+	function fn(){
+		$('#mydiv').innerText="hello...";
+	}
+	
+</script>
+</head>
+
+<body>
+	<div id="mydiv">표시</div>
+	<button onclick="fn()">확인</button>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>마우스/키보드 이벤트</title>
+<style>
+	.myc{
+		border:6px solid red;
+	}
+</style>
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<script>
+	
+	$(init)
+	function init(){
+		//$('#mybtn').click(btnClick);
+		
+		//bind / on 함수는 기능을 묶어 주는것. ex)click 이 발생했을때 btnClick 을 실행시키도록
+		//$('#mybtn').on("click",btnClick);
+	
+		//값줄 때만 "" 스타일시트/자바스크립트는 상관 x
+		//$("#mydiv").click(divClick)
+		
+		//bind 는 이벤트를 여러개 연결시킬수 있다.
+		//$("#mydiv").bind("mouseenter mouseleave",divClick);
+		//mouseenter 에 대한 mouseleave에 대한 이벤트 처리
+		$("#mydiv").hover(divClick,divClick1);
+		
+	}
+	function divClick(){
+		$(this).css('width','200px');
+	}
+	
+	function divClick1(){
+		//$("#mydiv").toggleClass('myc');
+		//#mydiv 대신 this라고 써도 된다.
+		$(this).css('width','100px');
+	}
+	
+	function btnClick(){
+		alert('call');
+	}
+	
+	function fn(){
+		//unbind / off 함수는 기능을 풀어주는것.
+		$('#mybtn').unbind("click",btnClick);
+	}
+	
+</script>
+</head>
+<body>
+	<div id="mydiv" style="background-color:yellow;width:100px;height:100px"></div><br>
+	<button id="mybtn">확인</button>
+	<button id="mybtn1" onclick="fn()">확인1</button>
+</body>
+</html>

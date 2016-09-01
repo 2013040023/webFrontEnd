@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<title>좌표 움직이기</title>
+<style>
+img{
+	width:400px;
+	height:320px;
+}
+</style>
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<script>
+	//prepend 셀렉터를 주게 되면 차일드 중에 마지막인 것을 한칸앞쪽으로 땡겨준다.
+	function fn1(){
+		$("#myimg").prepend($('img:last'))
+	}
+	//append 셀렉터를 주게 되면 차일드 중에 처음인 것을 다음칸 쪽으로 붙여준다.
+	function fn(){
+		$("#myimg").append($('img:first'));
+	}
+</script>
+</head>
+
+<body>
+	<button onclick="fn1()">이전</button>
+	<button onclick="fn()">다음</button>
+	<div id="myimg">	
+	<img src="image/img1.jpg">	
+
+	<img src="image/img2.jpg">	
+
+	<img src="image/img3.png">	
+
+	</div>
+
+</body>
+</html>

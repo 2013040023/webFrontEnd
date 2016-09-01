@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<title>Insert title here</title>
+<style>
+body{
+	background-color: #ffe6e6;
+}
+
+div{
+	width: 100%;
+	height: 300px;
+
+}
+header {
+	text-align: center;
+	background-color: #ff1a8c;
+	color: white;
+	height: 40px;
+}
+
+*{
+	text-align: center;
+}
+
+img{
+	width:400px;
+	height:320px;
+}
+
+</style>
+<script>
+
+	n=0;
+	imgStr = [ 'img/1smeb.jpg', 'img/2peanut.jpg', 'img/3kuro.jpg', 'img/3cry.jpg',
+	           'img/4pray.jpg', 'img/5gorilia.jpg', 'img/roxtigers.jpg'];
+	
+	$(document).ready(init)
+	function init(){
+		$("#past").click(past);
+		$("#next").click(next);		
+	}
+
+	function past(){
+		if(n==0){
+			n=6;
+		}
+		else{n--;}
+		rox.src=imgStr[n];
+		$("#rox").attr({src:imgStr[n]});
+	}
+	
+	function next(){		
+		if(n==6){
+			n=0;
+		}
+		else{n++;}
+		$("#rox").attr({src:imgStr[n]});
+	}
+</script>
+</head>
+<body>
+	<header><h1>ROX Tigers 사진대방출</h1></header>
+	<div>
+		<img id='rox'>
+	</div><br><br>
+		
+	<button id="past">이전</button>
+	<button id="next">다음</button>
+
+
+
+</body>
+</html>

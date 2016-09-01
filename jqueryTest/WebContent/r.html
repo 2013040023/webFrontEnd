@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<title>load Ajax function</title>
+<script>
+	function fn(){
+		//data={name:'보아',age:31}
+		param={name:'홍길동',age:30};
+		arg={type:'post',url:'jq1.jsp',data:param,
+				dataType:'html',success:JFn,error:errFn}
+		//$.ajax하나면 ajax은 끝남!!
+			$.ajax(arg);
+		
+		//load 의 두번째 인자는 사실상 쿼리스트링 ex)name='홍길동'&age=30;
+// 		$('#mydiv').load("jq1.jsp",data,comFn);
+// 		$('#mydiv').load("s.html",comFn);
+// 		$('#mydiv').load("my2.jsp",data,comFn);
+		
+		
+	}
+	
+	function JFn(data){
+		$('#mydiv').html(data);
+	}
+	function errFn(err){
+		console.log("에러",err)
+	}
+	
+	
+	function comFn(){
+		alert("complete");
+	}
+</script>
+
+</head>
+
+<body>
+
+	<div id="mydiv">표시</div>
+	<button onclick="fn()">확인</button>
+
+</body>
+</html>

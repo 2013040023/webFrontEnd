@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<title>13일차 과제 1</title>
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<script>
+
+$(init)
+function init(){
+		right =0;
+		position = 0;
+		$('#start').click(startFn);
+		$('#stop').click(stopFn);
+	}
+	
+function startFn() {
+	mymove = setInterval(move, 100);
+}
+
+function move(){
+	if(right==0){
+		position+=50;
+		$("#circle").animate({left:position},30);
+			if(position==200){
+				right=1;
+			}
+	}else if(right==1){
+			position-=50;
+			$("#circle").animate({left:position},30);
+				if(position==0){
+					right=0;
+				}
+		}
+}
+
+function stopFn(){
+	clearInterval(mymove);
+}
+
+	
+	
+</script>
+<style>
+		#circle{
+			position:absolute;
+			width:50px;
+			height:50px;	
+			background-color:blue;
+			border-radius: 5em;
+			left:0px;
+			}
+		
+		}
+</style>
+</head>
+
+<body>
+	<div id="circle"></div><br><br><br>
+	<button id="start" >시작</button>
+	<button id="stop" >종료</button>
+
+</body>
+</html>

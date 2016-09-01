@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<title>애니메이션</title>
+<style>
+/* 	img{ */
+/* 		display:none; */
+/* 	} */
+</style>
+<script>
+	function fn(){
+// 			$('img').show("slow",function()
+// 					{
+// 						$("#mydiv").text("보여짐");
+// 					});	//600
+			//토글은 역시나 false/ true 값으로 ..
+// 			$('img').toggle('slow');
+// 			$('img').fadeIn('slow');
+// 			$('img').fadeTo('slow','0.5');
+// 			$('img').slideDown('slow');
+			$('img').animate({width:300,height:300,opacity:0.5},1000);
+	}
+	function fn1(){
+// 			$('img').hide('1000',function()
+// 			{
+// 				$("#mydiv").text("숨겨짐");
+// 			});
+// 			$('img').fadeOut('slow');
+			$('img').slideUp('slow');	
+	}
+</script>
+</head>
+
+<body>
+	<div id="mydiv">상태</div>
+	<div id="mydiv1">모시모시</div>
+	<button onclick="fn()">보여라</button>
+	<button onclick="fn1()">숨겨라</button>
+	<img src="image/img1.jpg"><br>
+
+</body>
+
+</html>

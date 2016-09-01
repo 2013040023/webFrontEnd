@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>manipulating test</title>
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<script>
+	function fn(){
+		//innerText() test
+		//	$("#mydiv").text('hello');
+
+		//text 내용물 가져오기
+		// 		s=$("#mydiv").text();
+		// 		alert(s);
+
+		//innerHtml() test
+//		$("#mydiv").html('<h1>Hello</h1>');
+		$("h1").append('<div>hello</div>');
+	}
+	
+	function fn1(){
+		myh1=document.querySelector('h1');
+		mydiv=document.createElement('div');
+		mydiv.innerText="hello";
+		myh1.appendChild(mydiv);
+	}
+	
+</script>
+</head>
+<body>
+	<h1>test</h1>
+	<div id="mydiv">표시</div>
+	<button onclick="fn()">확인</button>
+</body>
+</html>

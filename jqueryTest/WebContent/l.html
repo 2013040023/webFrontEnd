@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>선택자 test</title>
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<script>
+	function fn(){
+ 	//	$('#my').children('p').css('color','red');
+ 	
+ 	//	$('#my>p').css('color','red');
+	//	$('#my').find('p').css('color','red');
+	//	$('#my p').css('color','red');
+	
+	//	$('#myp').prev().css('color','red');
+	//	$('#myp').next().css('color','red');
+	//	$('#myp').siblings().css('color','red');
+	//	$('#myp').parent().css('color','red');
+	
+	//	$('#my p').first().css('color','red');		
+	//	$('#my p:first').css('color','red');
+	//	$('#my p').last().css('color','red');		
+	
+	//	$('#my p').eq(1).css('color','red');
+	//	$('my p:eq(1)').css('color','red');
+	
+	//	$('p').filter(".myc").css('color','red');
+	//	$('p').fileter("#myp").css('color','red');
+	//	$('p.myc').css('color','red');
+	//	$('p').not(".myc").css('color','red');
+	//	$('#my >div').has('span').css('color','red');
+	}
+</script>
+</head>
+
+<body>
+	<div id="my">
+		<div><p>test1</p></div>
+		<p id="myp">test2</p>
+		<p class="myc">test3</p>
+		<p>test4</p>	
+		<div><span>test5</span></div>
+	</div>
+	<button onclick="fn()">확인</button>
+</body>
+</html>

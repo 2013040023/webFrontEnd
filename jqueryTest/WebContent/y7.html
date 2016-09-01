@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>13일차 과제 2</title>
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<style>
+	#student{
+		text-align:center;
+	}
+	
+	table,th,td{
+		border:2px solid black;
+	}
+	
+	#mytable{
+		width:40%;
+		text-align: center;
+		margin-top:50px;
+		margin-left:150px;
+		padding:3px;
+		}
+</style>
+
+<script>
+	$(init);
+	function init(){
+		$('button:first').bind("click",insertTable);
+		$('button:last').bind("click",selectTable);
+	}
+	
+	function insertTable(){
+		stdname=$('#stdname').val();
+		stdage=$('#stdage').val();
+		stdbirth=$('#stdbirth').val();
+		//name이 파라미터니까 jsp 파일에서도 getparameter를 해줄때도 name을 가져와야 한다.
+		data={name:stdname,age:stdage,birth:stdbirth};
+		$.getJSON('insertAdd.jsp',data);		
+	}
+	
+	function selectTable(){
+		$.getJSON('selectAdd.jsp',printTable);
+	}
+	
+	function printTable(arr){
+		len=mytable.rows.length;
+		for(i=1;i<len;i++)
+			mytable.deleteRow(1);
+		for(i in arr){
+			$('#mytable').append("<tr><td>"+arr[i].name+"</td><td>"+arr[i].age+"</td><td>"+arr[i].birth+"</td></tr>")
+		}
+	}
+</script>
+
+</head>
+
+<body>
+	<div id="student">
+	<h1>주소록 관리</h1>
+	이름:<input id="stdname" name="stdname" type="text"><br>
+	나이:<input id="stdage" name="stdage" type="number"><br>
+	생일:<input id="stdbirth" name="stdbirth" type="date"><br><br>
+	
+	<button value="insert">입력</button> 
+	<button value="select">보기</button>
+	
+	
+	<table id="mytable">
+	<tr><th>이름</th><th>나이</th><th>생일</th></tr>
+	</table>
+
+
+	
+	</div>
+</body>
+</html>

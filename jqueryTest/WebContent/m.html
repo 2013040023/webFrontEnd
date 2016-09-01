@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>붙이기 제거하기</title>
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<script>
+	function fn(){
+		//$("#mydiv").append("<h1>헬로</h1>");
+		//$("#mydiv").prepend("<h1>헬로</h1>");
+			//prepend 셀렉터를 주게 되면 차일드 중에 마지막인 것을 한칸앞쪽으로 땡겨준다.(이전)
+		//$("#mydiv").prepend($("#mydiv>img:last"));
+			//append 셀렉터를 주게 되면 차일드 중에 처음인 것을 다음칸 쪽으로 붙여준다.(다음)
+		//$("#mydiv").append( $("#mydiv>img:first") );
+		
+		//	$("#mydiv").append("<h1>hello</h1>");
+			
+			//appendTo는 셀렉터를 써 주어야 한다.!
+		//$("<h1>hello</h1>").appendTo("#mydiv");
+		//$("<h1>hello</h1>").prependTo("#mydiv");
+		
+			//remove는 삭제. empty 는 내용만 비어있도록!
+		//$("#mydiv>img:first").remove();
+		//$("#myp").empty();
+		
+			//detach는 삭제후,임시로 보관(잘라내기)와 같은 기능.
+		mypImsi=$("#myp").detach();
+	}
+	
+	function fn1(){
+		 //$("#myp").text('hello');
+		 $("#mydiv").append(mypImsi);
+	}
+</script>
+</head>
+<body>
+	<div id="mydiv">
+		<p id="myp">test1</p>
+		<p>test2</p>
+		<p>test3</p>
+		<img src="image/img1.jpg"><br>
+		<img src="image/img2.jpg"><br>
+			
+	</div>
+	<button onclick="fn()">확인</button>
+	<button onclick="fn1()">확인1</button>
+</body>
+</html>

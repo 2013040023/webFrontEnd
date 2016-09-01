@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<title>피자 주문서 JQUERY</title>
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+		<style>
+ 			form>input:focus{ 
+ 				background-color:yellow; 
+ 			} */
+			
+ 			textarea:focus{ 
+ 				background-color:yellow; 
+ 			} 
+			
+ 			ol{ 
+ 				list-style:none; 
+ 			} 
+		</style>
+		
+		<script>
+		$("ol").css('list-style','none');
+	
+		function fn(){					
+			name=$("#buyer_name").val();			
+			tel=$("#tel").val();
+			email=$("#email").val();			
+			size=$('[name="size"]:checked').val();			
+			_top="";
+			$('[name="topping"]:checked').each(chFn);	
+			
+			hopetime=$('[name="hopetime"]').val();
+			req=$('[name="req"]').val();			
+			
+			
+			result="고객명:"+name +"<br>"+"전화번호:"+ tel +"<br>"+"이메일:"+ email +"<br>"+"사이즈:"+ size +"<br>"+"토핑:"+ _top +"<br>"+"희망시간:"+ hopetime +"<br>"+"요청사항:"+ req;
+			$("#mydiv").html(result);
+			
+		}
+		
+		//인덱스,체크박스객체
+		function chFn(n,v){			
+			_top+= $(v).val()+" ";	
+			return _top;			
+		}
+		</script>
+</head>
+
+<body>
+	
+	
+	<label for="buyer" >고객명:</label>
+	<input id="buyer_name" name="buyer_name" type="text" required><br>
+	
+	<label for="tel">전화번호:</label>
+	<input id="tel" name="tel" type="tel" required><br>
+	
+	<label for="email">이메일:</label>
+	<input id="email" name="email" type="email" required><br>
+	
+	
+	<fieldset>
+	<legend name="size" >피자사이즈</legend>
+		<ol>
+			<li><input type="radio" value="small" name="size" required>Small<br></li>
+			<li><input type="radio" value="medium" name="size">Medium<br></li>
+			<li><input type="radio" value="large" name="size">Large<br></li>
+		</ol>
+	</fieldset>
+	
+	<fieldset>
+	<legend name="topping">토핑선택</legend>
+		<ol>
+			<li><input type="checkbox" value="bacon" name="topping">베이컨<br> </li>
+			<li><input type="checkbox" value="cheese" name="topping">치즈<br></li>
+			<li><input type="checkbox" value="onion" name="topping">양파<br></li>
+			<li><input type="checkbox" value="mushroom" name="topping">버섯<br></li>
+		</ol>
+
+	</fieldset>
+	
+	<label for="time">희망 배송시간:</label>
+	<input name="hopetime" valule="time" type="time" required><br><br>
+	
+	<label for="textarea">배송시 요청사항:</label>
+	<textarea name="req" value="textarea" width:100px></textarea><br>
+	
+	<button onclick="fn()">주문하기</button><br>
+	</form>
+	
+	<div id="mydiv"></div>
+
+	
+	
+
+</body>
+</html>

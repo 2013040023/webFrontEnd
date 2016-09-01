@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>마우스/키보드 이벤트</title>
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<script>
+	$(init)
+	function init(){
+// 		$("#myin").focus(function (){
+// 			$(this).css("background-color","yellow");
+// 		})
+// 		//blur는 포커스가 떠났을때의 이벤트를 말한다.
+// 		$("#myin").blur(function (){
+// 			$(this).css("background-color","white");
+// 		})
+// 		$("#myin").select(function (){
+// 			$(this).css("background-color","pink");
+// 		})
+		
+// 		$("#mysel").change(function(){
+// 			a=$(this).val();
+// 			$("#mydiv").text(a);
+// 		})
+		
+		//keydown,keyup:모든키 keypress:아스키
+		$("#myin1").keydown(function(e){
+ 			$("#mydiv").text("key"+e.keyCode);	//witch
+		})
+	}
+</script>
+</head>
+<body>
+	<div id="mydiv">표시</div><br>
+	<input id="myin" type="text"><br>
+	<input id="myin1" type="text"><br>
+	<select id="mysel">
+		<option value="사과">사과</option>
+		<option value="딸기">딸기</option>
+		<option value="포도">포도</option>
+	</select>
+</body>
+</html>

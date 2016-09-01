@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>prop함수와 피자주문서 예제</title>
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<script>
+	$(document).ready(init)
+	function init(){
+		$("#mybtn").click(fn);
+	}
+	function fn(){
+		
+		//보라색 값은 속성이니 '' 로 싸줘야함.
+		a=$('[type="number"]').val()
+		console.log(a,typeof(a));
+		name=$('[type="text"]').val();
+		age=$('[type="number"]').val();
+		console.log(name,age);			
+		
+		//prop()함수 checkbox의 checked 속성을 확인!
+		chk=$("#std").prop('checked',true);
+		if(chk){
+			console.log(chk,'학생');
+		}else{
+			console.log(chk,'학생아님');
+		}
+		
+		//prop 하게되면 , p에 hello라는 속성에 korea라는 글자를 넣어준다.
+		$("p").append("hello").prop("hello","korea");
+		a=$("p").prop("hello");
+		console.log(a);
+		console.log(a,typeof(a));
+
+		name=$('[type="text"]').val();
+		age=$('[type="number"]').val();
+		console.log(name,age);	
+		chk=$("#std").prop('checked');
+		if(chk){
+			console.log(chk,'학생');
+		}else{
+			console.log(chk,'학생아님');
+		}
+		
+		rd=$('[name="grade"]:checked').val()
+		console.log(rd);
+		
+		//jquery에서 select option은 checked가 아닌 selected 이다!
+		sel=$('select>option:selected').val();
+		console.log(sel);
+		
+		ch=$('[name="hobby"]:checked').each(chFn);
+		
+		//인덱스,체크박스객체
+		function chFn(n,v){
+			//console.log(n,v.value);
+			console.log(n, $(v).val() );
+		}
+	
+		
+	}
+</script>
+</head>
+
+<body>
+	<p></p>
+	이름:<input type="text"><br>
+	나이:<input type="number"><br>
+	
+	<input type="checkbox" name="hobby" value="독서">독서<br>
+	<input type="checkbox" name="hobby" value="클럽">클럽<br>
+	<input type="checkbox" name="hobby" value="노래방">노래방<br>
+	<input type="checkbox" name="hobby" value="여행">여행<br>
+	
+	<input type="radio" name="grade" value="1학년">1학년<br>
+	<input type="radio" name="grade" value="2학년">2학년<br>
+	<input type="radio" name="grade" value="3학년">3학년<br>
+	<input type="radio" name="grade" value="4학년">4학년<br>
+	<select>
+		<option value="윤수">윤수 스크</option>
+		<option value="보아">보아 스크</option>
+		<option value="선형">선형 스크</option>
+		<option value="연승">연승 스크</option>
+	</select>
+	<button id="mybtn">확인</button>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>attr()연쇄삽입test</title>
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+
+<script>
+	function fn(){
+	//	$('img').attr('src','image/img1.jpg');		
+	// 연쇄속성, '':img같은 속성 "":선택자 // 삽입시, 복수개=>무조건 JSON 생각해서 넣기
+	//$('img').attr('src','image/img2.jpg').attr('width','100');
+		$('img').attr({src:'image/img2.jpg',width:'200',height:'200'});
+	}
+</script>
+</head>
+<body>
+	<img src="">
+	<div id="mydiv">표시</div>
+	<button onclick="fn()">확인</button>
+</body>
+</html>

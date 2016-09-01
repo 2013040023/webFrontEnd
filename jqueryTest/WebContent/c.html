@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>val() test</title>
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<script>
+	function fn(){
+		//값가져오기
+		// 		a=$("#myin").val();
+		// 		alert(a);
+		
+		//a+b test
+		a=Number($("#myin").val());
+		b=Number($("#myin1").val());
+		$("#mydiv").text(a+b);
+		
+	}
+</script>
+</head>
+
+<body>
+	이름:<input id="myin" type="text"><br>
+	이름1:<input id="myin1" type="text"><br>
+	<div id="mydiv">표시</div>
+	<button onclick="fn()">확인</button>
+</body>
+
+</html>

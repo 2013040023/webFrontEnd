@@ -1,0 +1,221 @@
+jqueryTest 문서목록: jquery
+---------------------------
+a.html juery 기본 동작 방법- id 선택자이용 $(id).action
+b.html 
+		myh1=document.querySelector('h1');
+		mydiv=document.createElement('div');
+		mydiv.innerText="hello";
+		myh1.appendChild(mydiv);
+c.html val() test
+	val()=$('#id').value(); 식으로 주지않고 괄호안에 값을 직접 준다.
+	val( $('#id').value() );
+d.html attr() 연쇄삽입
+	$('img').attr({src:'image/img2.jpg',width:'200',height:'200'});
+
+e.html css 삽입
+	$("#mydiv").css({'color':'red','background-color':'yellow'});
+
+f.html each()함수 사용
+		obj={name:'김연주',age:23,addr:'인천광역시 연수구'};
+		//키,value
+		$.each(obj,arrFn);	
+
+
+		function arrFn(n,v){
+			console.log(n, $(v).val() );
+		}
+
+g.html  js와 jquery 비교
+
+			$('#fruit > li').css('color','red');		
+		$('#company').append('<li>CJ</li>');
+	
+		liArr=$('#fruit > li'); //document.querySelectorAll('#fruit>li');
+		for(n=0;n<liArr.length;n++){
+			//console.log(liArr[n].innerText);	
+			console.log($(liArr[n]).text());
+			
+		}
+
+
+
+
+		$('#fruit>li').each(arrFn);
+		//인덱스,li 객체
+		
+		function arrFn(n,v){
+			//console.log(v.innerText);
+			console.log( $(v) . text() );
+		}
+h.html ready
+jquery에서는 javascript의 onload 대신, document를 사용해 준다.
+	$(document).ready(init);
+	
+	function init(){
+		alert("call");
+	}
+
+	$(document).ready(function(){
+		alert("call");
+	})
+
+예외! ready이벤트 전형, 위에 것에 대한 축약형
+	$(init)
+
+	function init(){
+		//alert("call");
+		$("#mybtn").click(fn)
+	}
+	
+	function fn(){
+		$("#mydiv").text("대한민국");
+	}
+
+i.html 피자주문서 jquery
+		//prop()함수 checkbox의 checked 속성을 확인!
+		chk=$("#std").prop('checked',true);
+		if(chk){
+			console.log(chk,'학생');
+		}else{
+			console.log(chk,'학생아님');
+		}
+
+		//prop 하게되면 , p에 hello라는 속성에 korea라는 글자를 넣어준다.
+		$("p").append("hello").prop("hello","korea");
+		a=$("p").prop("hello");
+
+j.html jquery basic filter(선택자)
+	https://oscarotero.com/jquery/
+k.html 폼관련 jquery
+		//: 하게 주면, 폼과 관련된 속성!
+		//$(":input").css('border','2px solid red');
+
+l.html 선택자test
+m.html 붙이기 제거하기
+
+	//prepend 셀렉터를 주게 되면 차일드 중에 마지막인 것을 한칸앞쪽으로 땡겨준다.(이전)
+		//$("#mydiv").prepend($("#mydiv>img:last"));
+			//append 셀렉터를 주게 되면 차일드 중에 처음인 것을 다음칸 쪽으로 붙여준다.(다음)
+		//$("#mydiv").append( $("#mydiv>img:first") );
+
+	//appendTo는 셀렉터를 써 주어야 한다.!
+		//$("<h1>hello</h1>").appendTo("#mydiv");
+		//$("<h1>hello</h1>").prependTo("#mydiv");
+	
+	//remove는 삭제. empty 는 내용만 비어있도록!
+		//$("#mydiv>img:first").remove();
+		//$("#myp").empty();
+
+	//detach는 삭제후,임시로 보관(잘라내기)와 같은 기능.
+		mypImsi=$("#myp").detach();
+
+n.html 클래스 추가/제거
+	//toggleClass: 있으면 제거, 없으면 부여해 준다.
+			$('div:first').toggleClass('myc');		
+			$('div:first').removeClass('myc').addClass('myc1');
+o.html 마우스/키보드 이벤트
+		//$('#mybtn').click(btnClick);
+		
+		//bind / on 함수는 기능을 묶어 주는것. ex)click 이 발생했을때 btnClick 을 실행시키도록
+		//$('#mybtn').on("click",btnClick);
+	
+		//값줄 때만 "" 스타일시트/자바스크립트는 상관 x
+		//$("#mydiv").click(divClick)
+		
+		//bind 는 이벤트를 여러개 연결시킬수 있다. divClick 은 함수명
+		//$("#mydiv").bind("mouseenter mouseleave",divClick);
+		//mouseenter 에 대한 mouseleave에 대한 이벤트 처리
+		$("#mydiv").hover(divClick,divClick1);
+p.html 마우스/키보드 이벤트
+// 		$("#myin").focus(function (){
+// 			$(this).css("background-color","yellow");
+// 		})
+// 		//blur는 포커스가 떠났을때의 이벤트를 말한다.
+// 		$("#myin").blur(function (){
+// 			$(this).css("background-color","white");
+// 		})
+
+
+		//keydown,keyup:모든키 keypress:아스키
+		$("#myin1").keydown(function(e){
+ 			$("#mydiv").text("key"+e.keyCode);	//witch
+		})
+q.html animation
+			$('img').animate({width:300,height:300,opacity:0.5},1000);
+	// 		$('img').fadeOut('slow');
+			$('img').slideUp('slow');
+r.html loadAjax function
+		param={name:'홍길동',age:30};
+		arg={type:'post',url:'jq1.jsp',data:param,
+				dataType:'html',success:JFn,error:errFn}
+		//$.ajax하나면 ajax은 끝남!!
+			$.ajax(arg);
+	function JFn(data){
+		$('#mydiv').html(data);
+	}
+	function errFn(err){
+		console.log("에러",err)
+	}
+	
+	
+	function comFn(){
+		alert("complete");
+	}
+s.html 참조용 문서 
+t.html $.getJSON();
+	function fn(){
+		data={name:'보아',age:31}
+		
+		//AJAX에서 JSON전용 메소드
+		$.getJSON('my3.jsp',JFn)
+				
+	}
+	//data 자체가 JSON 객체이다.
+	function JFn(data){
+			for(n in data){
+				console.log(data[n].name,data[n].age);
+			}
+		}
+
+u.html Ajax xml
+function fn(){
+		arg={type:'post',url:'my5.jsp',
+				dataType:'xml',success:JFn,error:errFn}
+		//$.ajax하나면 ajax은 끝남!!
+			$.ajax(arg);
+		}
+	
+	function JFn(data){
+		//console.log(data);
+		$(data).find('people').each(xmlEach);
+	}
+	
+	function xmlEach(n,v){
+		//console.log(n,v);
+		console.log("이름:",$(v).find('name').text());
+		console.log("나이:",$(v).find('age').text());
+	}
+	
+	function errFn(err){
+		console.log("에러",err);
+	}
+v.html Ajax xml
+---------------------------
+과제
+y1.html jquery pizza 주문서
+y2.html 이미지 이동 past,next 버튼
+y3.html jquery 계산기
+y4.html 이미지 이동 prepend,append 이용
+	//prepend 셀렉터를 주게 되면 차일드 중에 마지막인 것을 한칸앞쪽으로 땡겨준다.
+	function fn1(){
+		$("#myimg").prepend($('img:last'))
+	}
+	//append 셀렉터를 주게 되면 차일드 중에 처음인 것을 다음칸 쪽으로 붙여준다.
+	function fn(){
+		$("#myimg").append($('img:first'));
+	}
+y5.html 키보드 입력에 따른 이미지 animate
+	$("#myimg").animate({left:"+=50px"},"slow");
+y6.html 공 animate 시작,중지
+y7.html DB연동 주소록 Jquery
+

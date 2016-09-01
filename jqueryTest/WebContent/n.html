@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>클래스추가/제거</title>
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<style>
+	.myc{
+		border:2px solid red;
+		}
+		
+	.myc1{
+		border:5px solid blue;
+		}		
+</style>
+<script>
+	function fn(){
+			//$('div:first').addClass('myc');
+			
+				//toggleClass: 있으면 제거, 없으면 부여해 준다.
+			$('div:first').toggleClass('myc');
+	}
+	function fn1(){
+		$('div:first').removeClass('myc').addClass('myc1');
+	}
+</script>
+</head>
+<body>
+	<div>test1</div>
+	<div>test2</div>
+	<div>test3</div>
+	<div>test4</div>
+	<button onclick="fn()">확인</button>
+	<button onclick="fn1()">확인1</button>
+</body>
+</html>

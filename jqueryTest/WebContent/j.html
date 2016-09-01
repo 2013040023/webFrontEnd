@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Basic Filter</title>
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<script>
+	function fn(){
+		//$("#fruit>li:eq(1)").css('color','red');		
+ 		//$("#fruit>li:gt(2)").css('color','red');
+		//$("#fruit>li:lt(2)").css('color','red');
+		//$("#fruit>li:first").css('color','red');
+		//$("#fruit>li:last").css('color','red');
+		//$("#fruit>li:even").css('color','red');
+		//$("#fruit>li:odd").css('color','red');
+		
+		//not을 쓸때는 안에 꼭 :을 붙여주기!
+		//$("#fruit>li:not(:eq(1))").css('color','red');
+		
+		//$("#fruit>li:contains('포도')").css('color','red');
+		
+		//빈곳에 키위라는 텍스트를 넣어준다.
+		//$("#fruit>li:empty").text('키위');
+		
+		//$("#fruit>li:has('h3')").css('color','red');
+		//$("#fruit>li:parent").css('color','red');
+		
+		//$("#fruit>li:first-child").css('color','red');
+		
+		//stylesheet는 n에 값이 1부터 간다.
+		$("#fruit>li:nth-child(2n)").css('color','red');
+		
+	}
+</script>
+</head>
+
+<body>
+	<ul id="fruit">
+		<li>사과</li>
+		<li>딸기</li>
+		<li>포도</li>
+		<li></li>
+		<li>바나나</li>
+		<li><h3>수박</h3></li>
+		<li>참외</li>
+	</ul>
+	
+	<ul id="company">
+		<li>삼성</li>
+		<li>현대</li>
+		<li>LG</li>
+		<li>SK</li>
+		<li>롯데</li>
+		<li>기아</li>
+	</ul>
+
+	<div id="mydiv">표시</div>
+	<button onclick="fn()">확인</button>
+</body>
+
+</html>

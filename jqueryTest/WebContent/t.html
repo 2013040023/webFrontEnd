@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<title>load Ajax function</title>
+<script>
+	function fn(){
+		data={name:'보아',age:31}
+		
+		//AJAX에서 JSON전용 메소드
+		$.getJSON('my3.jsp',JFn)
+				
+	}
+	//data 자체가 JSON 객체이다.
+	function JFn(data){
+			for(n in data){
+				console.log(data[n].name,data[n].age);
+			}
+		}
+</script>
+
+</head>
+
+<body>
+
+	<div id="mydiv">표시</div>
+	<button onclick="fn()">확인</button>
+
+</body>
+</html>

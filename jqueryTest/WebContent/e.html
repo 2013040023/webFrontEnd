@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>stylesheet 조작</title>
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+
+<script>
+	function fn(){
+// 		$("#mydiv").css('color','red').text('대한민국');
+//		$("#mydiv").css('color','red').css('background-color','yellow');
+		$("#mydiv").css({'color':'red','background-color':'yellow'});
+	}
+</script>
+</head>
+
+<body>
+	<img src="image/img1.jpg">
+	<div id="mydiv">표시</div>
+	<button onclick="fn()">확인</button>
+</body>
+</html>

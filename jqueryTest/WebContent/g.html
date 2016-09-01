@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<title>js와 jquery 비교</title>
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+
+<script>
+	function fn(){
+// 		$('#fruit > li').css('color','red');		
+// 		$('#company').append('<li>CJ</li>');
+	
+// 		liArr=$('#fruit > li'); //document.querySelectorAll('#fruit>li');
+// 		for(n=0;n<liArr.length;n++){
+// 			//console.log(liArr[n].innerText);	
+// 			console.log($(liArr[n]).text());
+			
+// 		}
+
+		$('#fruit>li').each(arrFn);
+		//인덱스,li 객체
+		
+		function arrFn(n,v){
+			//console.log(v.innerText);
+			console.log( $(v) . text() );
+		}
+	}
+</script>
+</head>
+
+<body>
+	<ul id="fruit">
+		<li>사과</li>
+		<li>딸기</li>
+		<li>포도</li>
+		<li>바나나</li>
+		<li>수박</li>
+		<li>참외</li>
+	</ul>
+	
+	<ul id="company">
+		<li>삼성</li>
+		<li>현대</li>
+		<li>LG</li>
+		<li>SK</li>
+		<li>롯데</li>
+		<li>기아</li>
+	</ul>
+
+	<button onclick="fn()">확인</button>
+</body>
+
+</html>

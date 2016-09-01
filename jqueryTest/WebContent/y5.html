@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style>
+img{
+	position:absolute;
+	left:50px;
+	width:400px;
+	height:320px;
+	margin:5px;
+
+}
+</style>
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<script>
+
+	$(init)
+	function init(){		
+		$(document).keydown(function(e){
+			if(e.keyCode=="37"){
+				$("#myimg").animate({left:"-=50px"},"slow");
+			}
+			else if(e.keyCode=="39"){
+				$("#myimg").animate({left:"+=50px"},"slow");
+			}
+		});
+		
+
+	}
+</script>
+</head>
+
+<body>
+	<div id="mydiv">표시</div><br>
+	<img id="myimg" src="image/img1.jpg">		
+
+</body>
+</html>

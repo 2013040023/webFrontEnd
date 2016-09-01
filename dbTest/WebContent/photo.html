@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Photo</title>
+	<style>
+		ul {
+			list-style: none;
+		}
+		li {
+			display: inline;
+		}
+		h1 {
+			text-align: center;
+		}
+		img {
+			opacity: 0.5;
+			width: 300px;
+			height: 280px;
+			border: none;
+		}
+		#img1:HOVER {
+			opacity: 1;
+			transform: scale(2, 2);
+			transition: 2s;
+		}
+		#img2:HOVER {
+			opacity: 1;
+			transform: rotate(180deg);
+			transition: 2s;
+		}
+		#img3:HOVER {
+			opacity: 1;
+			width: 200px;
+			height: 180px;
+			transition: 1s;
+		}
+		#img4:HOVER {
+			opacity: 1;
+			transform: skewX(30deg);
+			transition: 3s;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>활동사진</h1>
+	
+	<p style="text-align: center">
+		<img id="img1" src="img/img1.jpg">
+	</p>
+	<p style="text-align: center">
+		<img id="img2" src="img/img2.jpg">
+	</p>
+	<p style="text-align: center">
+		<img id="img3" src="img/img3.jpg">
+	</p>
+	<p style="text-align: center">
+		<img id="img4" src="img/img4.jpg">
+	</p>
+
+</body>
+</html>

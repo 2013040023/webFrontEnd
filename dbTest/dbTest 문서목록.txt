@@ -1,0 +1,126 @@
+dbTest 문서목록: mysql,jsp file
+-----------------------------------
+a.html get Tset
+b.html post Test
+
+function myAjax(){
+		xmlHttp = new XMLHttpRequest();
+		xmlHttp.onreadystatechange=on_ready;
+	//	xmlHttp.open( "GET" , "a.jsp?myname=kimyeonju&myage=23", true);
+		xmlHttp.open("POST","a.jsp", true);
+		data="myname="+myname.value+"&myage="+myage.value;
+		xmlHttp.setRequestHeader("Content-Type",
+				"application/x-www-form-urlencoded");
+		xmlHttp.send(data);
+	}	
+	
+	function on_ready(){
+		if(xmlHttp.readyState==4){
+			if(xmlHttp.status==200){
+				myDiv.innerHTML = xmlHttp.responseText.trim();
+			}
+		}
+	}
+
+c.html mysql dbTest-insert
+	function myAjax(){
+		xmlHttp = new XMLHttpRequest();
+		xmlHttp.onreadystatechange=on_ready;
+		myurl="my2.jsp?myname="+myname.value+"&myage="+myage.value;
+		xmlHttp.open( "GET" , myurl, true);
+		xmlHttp.setRequestHeader("Content-Type",
+				"application/x-www-form-urlencoded");
+		xmlHttp.send();
+	}	
+	
+	function on_ready(){
+		if(xmlHttp.readyState==4){
+			if(xmlHttp.status==200){
+				myDiv.innerHTML = xmlHttp.responseText.trim();
+			}
+		}
+	}
+
+d.html mysql dbTest-insert
+
+	function myAjax(){
+		xmlHttp = new XMLHttpRequest();
+		xmlHttp.onreadystatechange=on_ready;
+		myurl="mys.jsp"
+		xmlHttp.open( "GET" , myurl, true);
+		xmlHttp.setRequestHeader("Content-Type",
+				"application/x-www-form-urlencoded");
+		xmlHttp.send();
+	}	
+	
+	function on_ready(){
+		if(xmlHttp.readyState==4){
+			if(xmlHttp.status==200){
+				rcv=xmlHttp.responseText.trim();
+				//string으로 변환시켰으니 string 타입!!
+				console.log(typeof(rcv));
+				myDiv.innerHTML = rcv;				
+				toMyJson(rcv);
+				
+			}
+		}
+	}
+	
+	function toMyJson(rcv){
+		//JSON을 Array 객체로 변환,
+		myj=JSON.parse(rcv);
+		
+		for(n in myj){			
+			console.log("이름:", myj[n].name,"나이:",myj[n].age);
+		}
+	}
+
+e.html attributes,종속 test
+f.html mysql dbTest-select
+
+	function myAjax(){
+		xmlHttp = new XMLHttpRequest();
+		xmlHttp.onreadystatechange=on_ready;
+		myurl="my5.jsp"
+		xmlHttp.open( "GET" , myurl, true);
+		xmlHttp.setRequestHeader("Content-Type",
+				"application/x-www-form-urlencoded");
+		xmlHttp.send();
+	}	
+	
+	function on_ready(){
+		if(xmlHttp.readyState==4){
+			if(xmlHttp.status==200){
+					//xml object
+				console.log(xmlHttp.responseXML);
+				parseXML(xmlHttp.responseXML);
+			}
+		}
+	}
+	
+	function parseXML(xmlData){
+		nameArr=xmlData.getElementsByTagName('name');
+		ageArr=xmlData.getElementsByTagName('age');
+		birthArr=xmlData.getElementsByTagName('birth');
+
+		
+		for(n=0;n<nameArr.length;n++){
+			console.log(nameArr[n].firstChild.nodeValue);
+			console.log(ageArr[n].firstChild.nodeValue);	
+			console.log(birthArr[n].firstChild.nodeValue);	
+		}
+	}
+	
+	function toMyJson(rcv){
+		//JSON을 Array 객체로 변환,
+		myj=JSON.parse(rcv);
+		
+		for(n in myj){			
+			console.log("이름:", myj[n].name,"나이:",myj[n].age);
+		}
+	}
+
+----------------------------------------------
+과제 
+
+y1.html xml형식으로 보내서 ,db 연동한후, table 로 보여주기

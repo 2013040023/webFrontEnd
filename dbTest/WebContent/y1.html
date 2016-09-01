@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>10일차 과제</title>
+
+<style>
+	#student{
+		text-align:center;
+	}
+	
+	table,th,td{
+		border:2px solid black;
+	}
+	
+	#mytable{
+		width:40%;
+		text-align: center;
+		margin-top:50px;
+		margin-left:150px;
+		padding:3px;
+		}
+</style>
+
+<script>
+
+	arr=[];
+
+	//javascript 기반,class 정의
+	function Student(name,age,birth){
+		this.name=name;
+		this.age=age;
+		this.birth=birth;		
+		
+	}
+	
+	Student.prototype.getName=function(){
+		return this.name;
+	}
+	
+	Student.prototype.getAge=function(){
+		return this.age;
+	}
+	
+	Student.prototype.getBirth=function(){
+		return this.birth;
+	}
+	
+	
+	function add(){								
+		xmlHttp = new XMLHttpRequest();
+	
+		myurl="add.jsp?stdname="+stdname.value+"&stdage="+stdage.value+"&stdbirth="+stdbirth.value;
+		console.log(stdname.value,stdage.value,stdbirth.value);
+		xmlHttp.open( "GET" , myurl, true);
+		xmlHttp.setRequestHeader("Content-Type",
+				"application/x-www-form-urlencoded");
+		xmlHttp.send();	
+		
+		arr.push(new Student(stdname.value,stdage.value,stdbirth.value));			
+		console.log("이름:",stdname.value+"나이:",stdage.value+ "생일:",stdbirth.value);	
+		
+	 }
+				
+
+ 	function showAll(){
+		xmlHttp = new XMLHttpRequest();
+		xmlHttp.onreadystatechange=on_ready;
+		myurl="view.jsp"
+		xmlHttp.open( "GET" , myurl, true);
+		xmlHttp.setRequestHeader("Content-Type",
+				"application/x-www-form-urlencoded");
+		xmlHttp.send();	
+		
+	} 
+ 	
+	function on_ready(){
+		if(xmlHttp.readyState==4){
+			if(xmlHttp.status==200){
+				rcv=xmlHttp.responseText.trim();
+				t_arr=JSON.parse(rcv);			
+				toMyJson(t_arr);			
+				
+			}
+		}
+	}
+	
+	function toMyJson(rcv_arr){
+		l=mytable.rows.length;
+		
+		for(i=1;i<l;i++){
+			mytable.deleteRow(1);
+		}
+
+		for(n in rcv_arr){
+ 			row=mytable.insertRow();
+			row.insertCell().innerText=rcv_arr[n].name;
+			row.insertCell().innerText=rcv_arr[n].age;
+			row.insertCell().innerText=rcv_arr[n].birth;
+		}
+		
+	}
+
+</script>
+
+</head>
+
+<body>
+	<div id="student">
+	<h1>주소록 관리</h1>
+	이름:<input id="stdname" name="stdname" type="text"><br>
+	나이:<input id="stdage" name="stdage" type="number"><br>
+	생일:<input id="stdbirth" name="stdbirth" type="date"><br><br>
+	
+	<button onclick="add()">입력</button> 
+
+	<button onclick="showAll()">보기</button>
+	
+	
+		<table id="mytable">
+		<tr><th>이름</th><th>나이</th><th>생일</th></tr>
+		</table>
+
+
+	
+	</div>
+</body>
+
+</html>

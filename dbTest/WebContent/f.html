@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>MYSQL DB test-select</title>
+<script>
+
+	function myAjax(){
+		xmlHttp = new XMLHttpRequest();
+		xmlHttp.onreadystatechange=on_ready;
+		myurl="my5.jsp"
+		xmlHttp.open( "GET" , myurl, true);
+		xmlHttp.setRequestHeader("Content-Type",
+				"application/x-www-form-urlencoded");
+		xmlHttp.send();
+	}	
+	
+	function on_ready(){
+		if(xmlHttp.readyState==4){
+			if(xmlHttp.status==200){
+					//xml object
+				console.log(xmlHttp.responseXML);
+				parseXML(xmlHttp.responseXML);
+			}
+		}
+	}
+	
+	function parseXML(xmlData){
+		nameArr=xmlData.getElementsByTagName('name');
+		ageArr=xmlData.getElementsByTagName('age');
+		birthArr=xmlData.getElementsByTagName('birth');
+
+		
+		for(n=0;n<nameArr.length;n++){
+			console.log(nameArr[n].firstChild.nodeValue);
+			console.log(ageArr[n].firstChild.nodeValue);	
+			console.log(birthArr[n].firstChild.nodeValue);	
+		}
+	}
+	
+	function toMyJson(rcv){
+		//JSON을 Array 객체로 변환,
+		myj=JSON.parse(rcv);
+		
+		for(n in myj){			
+			console.log("이름:", myj[n].name,"나이:",myj[n].age);
+		}
+	}
+	
+</script>
+</head>
+
+<body>
+	
+		<div id="myDiv">표시영역</div>
+		이름:<input id="myname" name="myname" type="text"><br>
+		나이:<input id="myage" name="myage" type="number"><br>
+<!-- 		<input type="submit" value="제출">			 -->
+		<button onclick="myAjax()">짜짠</button>
+	
+</body>
+
+</html>

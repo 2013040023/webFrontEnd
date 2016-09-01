@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>attribute,종속 test</title>
+	<script>
+	function fn(){
+	//		mydisp.innerText=foo.firstChild.nodeValue;
+			my=document.getElementsByTagName("a");
+	//		mydisp.innerText=foo.firstChild.nextSibling.firstChild.nodeValue;
+	//		mydisp.innerText=my[0].firstChild.nodeValue;
+	//		mydisp.innerText=foo.lastChild.nodeValue;
+	//		mydisp.innerText=foo.childNodes[1].firstChild.nodeValue;
+	//		mydisp.innerText=foo.childNodes[2].nodeValue;
+			mydisp.innerText=foo.childNodes[1].attributes[0].nodeValue;
+			mydisp.innerText=foo.childNodes[1].attributes[1].nodeValue;
+	
+	}
+	</script>
+</head>
+
+<body>
+
+	<div id="mydisp">표시</div>
+	<p id="foo">
+		This is a paragraph of text with a
+		<a href="a.html" alt="hello">link</a>
+		....
+	</p>
+	<button onclick="fn()">확인</button>
+
+</body>
+</html>

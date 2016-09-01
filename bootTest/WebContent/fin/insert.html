@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<style>
+body{
+     background-color: #777;
+      
+}
+fieldset{
+  	padding:25px;
+  	margin:25px;
+}
+</style>
+<script>
+
+function insertTable(){
+	title=$('#title').val();
+	writer=$('#writer').val();
+	pwd=$('#pwd').val();	
+	content=$('#content').val();
+	
+	//name이 파라미터니까 jsp 파일에서도 getparameter를 해줄때도 name을 가져와야 한다.
+	data={title:title,writer:writer,pwd:pwd,content:content};
+	console.log(title);
+	$.getJSON('insert.jsp',data);		
+	alert("글쓰기가 완료되었습니다.");
+	location.href="board.html";
+
+}
+
+</script>
+</head>
+<body>
+	
+	<fieldset><legend>글 작성</legend>
+		<div class="form-group">	
+		<label for="title">title:</label>
+		  <input type="text" class="form-control" id="title">
+		  
+		  <label for="writer">writer:</label>
+		  <input type="text" class="form-control" id="writer">
+		
+
+		  <label for="pwd">pwd:</label>
+		  <input type="password" class="form-control" id="pwd">
+
+
+		  <label for="content">content:</label>
+		  <textarea class="form-control" rows="5" id="content"></textarea>
+		</div>
+	</fieldset>
+	
+	<button onclick="insertTable()" type="button">작성</button>
+</body>
+</html>

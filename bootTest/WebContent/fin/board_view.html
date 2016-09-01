@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap table</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<style>
+body{
+     background-color: #777;
+     margin:20px;
+}
+
+</style>
+<script>
+$(init);
+function init(){
+	viewnum=sessionStorage.getItem("num");
+	console.log("board_view"+viewnum);
+	selectTable(viewnum);
+	
+}
+
+function move(){
+	location.href="board.html";
+}
+
+function selectTable(viewnum){
+	console.log("viewnum"+viewnum);
+	data={num:viewnum}
+//	resultarr=$.getJSON('board_view.jsp',data);
+ 	$('#mydisp').load('board_view.jsp',data);
+// 	toarr=JSON.parse(resultarr);
+// 	printTable(toarr);
+}
+
+function printTable(arr){	
+// 	for(i in arr){
+// 		$('#title').val()=arr[i].title;
+// 		$('#writer').val()=arr[i].writer;
+// 		$('#content').val()=arr[i].content;
+// 	}
+		
+}
+
+
+</script>
+
+</head>
+
+
+<body>
+	<div id="mydisp">표시</div>
+<div class="container">
+	<fieldset><legend>글 읽기</legend>
+			<div class="form-group">	
+			<label for="title">title:</label>
+			  <input type="text" class="form-control" id="title">
+			  
+			  <label for="writer">writer:</label>
+			  <input type="text" class="form-control" id="writer">
+	
+			  <label for="content">content:</label>
+			  <textarea class="form-control" rows="5" id="content"></textarea>
+			</div>
+		</fieldset>
+</div>
+  		<button onclick="move()" type="button">목록</button>
+</body>
+</html>
+

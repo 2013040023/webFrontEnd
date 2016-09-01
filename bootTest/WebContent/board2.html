@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap table</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<script>
+$(init);
+function init(){
+	selectTable();
+}
+
+function move(){
+	location.href="insert.html";
+}
+
+function selectTable(){
+	$.getJSON('selectAdd.jsp',printTable);
+}
+
+function printTable(arr){
+	len=mytable.rows.length;
+	for(i=1;i<len;i++)
+		mytable.deleteRow(1);
+	for(i in arr){
+		$('#mytablebody').append("<tr><td>"+arr[i].num+"</td><td>"+arr[i].title+"</td><td>"+arr[i].writer+"</td></tr>")
+	}
+}
+</script>
+
+</head>
+
+
+<body>
+
+<div class="container">
+  <h2>게시판</h2>
+	 <div class="table-responsive">
+	  <table id="mytable" class="table table-bordered table-hover">
+	<!--   table-striped table-hover table-bordered-->
+	    <thead>
+	      <tr>
+	        <th>번호</th>
+	        <th>제목</th>
+	        <th>작성자</th>
+	      </tr>
+	    </thead>
+	    
+	    <tbody id="mytablebody">
+	    </tbody>    
+	  </table>
+	</div>
+</div>
+  		<button onclick="move()" type="button">글쓰기</button>
+</body>
+</html>
+
